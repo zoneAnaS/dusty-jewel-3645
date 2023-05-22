@@ -5,13 +5,11 @@ import java.util.List;
 import java.util.Optional;
 
 import com.sweetopia.dto.ProductDTO;
-import com.sweetopia.entity.Customer;
+import com.sweetopia.entity.User;
 import com.sweetopia.entity.Order;
 import com.sweetopia.service.CustomerService;
 import com.sweetopia.service.OrderService;
-import com.sweetopia.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.sweetopia.entity.OrderBill;
@@ -67,7 +65,7 @@ public class OrderBillServiceImpl implements OrderBillService {
 			OrderBill ordbill=orderbill1.get();
 			Order order=orderService.showAllSweetOrderById(ordbill.getSweetOrder().getOrderId());
 			order.setOrderBill(null);
-			orderService.updateSweetOrder(order.getCustomer().getId(),order);
+			orderService.updateSweetOrder(order.getUser().getId(),order);
 			ordbill.setSweetOrder(null);
 			orderbillrepository.deleteById(orderBillId);
 			return ordbill;
@@ -105,9 +103,9 @@ public class OrderBillServiceImpl implements OrderBillService {
 
 	@Override
 	public List<OrderBill> showAllBillOfCustomer(Long customerId) throws OrderBillNotFoundException {
-		Customer customer=customerService.getCustomerById(customerId);
+		User user =customerService.getCustomerById(customerId);
 		List<OrderBill> list = new ArrayList<>();
-		for(Order order:customer.getOrders()){
+		for(Order order: user.getOrders()){
 			if(order.getOrderBill()!=null){
 				list.add(order.getOrderBill());
 			}

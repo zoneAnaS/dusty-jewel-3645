@@ -1,12 +1,10 @@
 package com.sweetopia.service.implementation;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 import com.sweetopia.dto.ProductDTO;
-import com.sweetopia.entity.Customer;
+import com.sweetopia.entity.User;
 import com.sweetopia.entity.Product;
 import com.sweetopia.exception.ProductException;
 import com.sweetopia.service.CustomerService;
@@ -15,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.sweetopia.entity.Cart;
 import com.sweetopia.exception.CartNotFoundException;
-import com.sweetopia.exception.InvalidCartException;
 import com.sweetopia.repository.CartRepository;
 import com.sweetopia.service.CartService;
 import org.springframework.stereotype.Service;
@@ -48,7 +45,7 @@ public class CartServiceImpl implements CartService{
 
 			for(ProductDTO productDTO:cart.getListProduct()){
 				try{
-					addProductToCart(cart.getCustomer().getId(),productDTO.getProductId(), productDTO.getQuantity());
+					addProductToCart(cart.getUser().getId(),productDTO.getProductId(), productDTO.getQuantity());
 				}catch(ProductException ex){
 
 				}
@@ -84,11 +81,11 @@ public class CartServiceImpl implements CartService{
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public Cart addProductToCart(Long customerId, Long ProductId, Integer quantity) throws ProductException {
-		Customer customer=customerService.getCustomerById(customerId);
+		User user =customerService.getCustomerById(customerId);
 		Product product=productService.getProductById(ProductId);
 		if(product.getAvailable()<quantity)throw new ProductException("Product only has "+product.getAvailable()+" stock");
 		product.setAvailable(product.getAvailable()-quantity);
-		Cart cart = showAllCarts(customer.getCart().getCartId());
+		Cart cart = showAllCarts(user.getCart().getCartId());
 		boolean flag=false;
 		int i=0;
 		for(ProductDTO productDTO:cart.getListProduct()){

@@ -23,11 +23,7 @@ public class OrderBill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderBillId;
 
-
-
     private LocalDate createdDate=LocalDate.now();
-
-
     private Double totalCost=0.0;
 
     @OneToOne(mappedBy = "orderBill")

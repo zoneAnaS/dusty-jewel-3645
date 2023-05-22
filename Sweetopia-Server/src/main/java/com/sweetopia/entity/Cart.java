@@ -1,7 +1,9 @@
 package com.sweetopia.entity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sweetopia.dto.ProductDTO;
@@ -29,8 +31,7 @@ public class Cart {
 	private List<ProductDTO> listProduct=new ArrayList<>();
 
 	@OneToOne(mappedBy = "cart", cascade = CascadeType.ALL)
-
 	@JsonIgnore
-	private Customer customer;
+	private User user;
 
 }

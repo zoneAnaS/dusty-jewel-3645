@@ -1,34 +1,44 @@
 package com.sweetopia.entity;
 
-import javax.persistence.Column;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = "users")
 public class User {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@Size(min = 3,max = 20)
+	private String userName;
+	@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,12}$")
+	private String userPassword;
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
+	private List<Order> orders=new ArrayList<>();
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    @Column(unique = true)
-    private String username;
-    
-    private String password;
-    
-    @Column(name = "is_admin")
-    private boolean isAdmin;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
+	@JoinColumn(name = "cart_id")
+	private Cart cart;
 
-    
+	@OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+	private List<Address> addresses = new ArrayList<>();
+
+	@Email
+	private String email;
+	
+
 }
-
-

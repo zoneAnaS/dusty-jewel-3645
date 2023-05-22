@@ -1,18 +1,15 @@
 package com.sweetopia.service.implementation;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import com.sweetopia.dto.ProductDTO;
 import com.sweetopia.entity.Cart;
-import com.sweetopia.entity.Customer;
+import com.sweetopia.entity.User;
 import com.sweetopia.exception.ProductException;
-import com.sweetopia.repository.CustomerRepository;
 import com.sweetopia.service.CartService;
 import com.sweetopia.service.CustomerService;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,17 +33,17 @@ public class OrderServiceImpl implements OrderService{
 	public Order addSweetOrder(Long customerId) throws OrderNotFoundException, ProductException {
 		// TODO Auto-generated method
 
-		Customer customer =customerService.getCustomerById(customerId);
-		List<ProductDTO> list=customer.getCart().getListProduct();
+		User user =customerService.getCustomerById(customerId);
+		List<ProductDTO> list= user.getCart().getListProduct();
 		System.out.println(list);
 		if(list.isEmpty())throw new OrderNotFoundException("Cart is empty add product to cart");
 		Order order1=new Order();
-		order1.setCustomer(customer);
-		for(ProductDTO p:customer.getCart().getListProduct()){
+		order1.setUser(user);
+		for(ProductDTO p: user.getCart().getListProduct()){
 			order1.getGroupedProducts().add(p);
 		}
 
-		Cart cart=cartService.showAllCarts(customer.getCart().getCartId());
+		Cart cart=cartService.showAllCarts(user.getCart().getCartId());
 		cart.setGrandTotal(0.0);
 		cart.setTotal(0.0);
 		cart.setProductCount(0);
@@ -68,16 +65,16 @@ public class OrderServiceImpl implements OrderService{
 		}else{
 			throw new OrderNotFoundException("Order id cannot be null");
 		}
-		Customer customer =customerService.getCustomerById(customerId);
+		User user =customerService.getCustomerById(customerId);
 		boolean flag=false;
-		for(Order order1:customer.getOrders()){
+		for(Order order1: user.getOrders()){
 			if(order1.getOrderId()==order.getOrderId()){
 				flag=true;
 				break;
 			}
 		}
 		if(flag){
-			order.setCustomer(customer);
+			order.setUser(user);
 			return orderrepository.save(order);
 		}else{
 			throw new OrderNotFoundException("Order with id: "+order.getOrderId()+" does not belong to customer id: "+customerId);
@@ -93,7 +90,7 @@ public class OrderServiceImpl implements OrderService{
 		Optional<Order> ord =orderrepository.findById(orderId);
 		if(ord.isPresent()) {
 			Order od=ord.get();
-			od.setCustomer(null);
+			od.setUser(null);
 			orderrepository.deleteById(orderId);
 			return ord.get();
 		}else {

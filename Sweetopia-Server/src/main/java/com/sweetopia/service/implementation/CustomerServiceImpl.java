@@ -7,8 +7,7 @@ import com.sweetopia.entity.Address;
 import com.sweetopia.repository.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.sweetopia.entity.Customer;
-import com.sweetopia.entity.Order;
+import com.sweetopia.entity.User;
 
 import com.sweetopia.exception.CustomerNotFoundException;
 import com.sweetopia.exception.InvalidCustomerException;
@@ -25,47 +24,47 @@ public class CustomerServiceImpl implements CustomerService{
 	private AddressRepository addressRepository;
 
 	@Override
-	public Customer addCustomer(Customer customer)throws InvalidCustomerException {
-		Optional<Customer> customer2 =customerRepository.findByEmail(customer.getEmail());
-		if(customer2.isPresent())throw new InvalidCustomerException(customer.getEmail()+" email already registered!");
-		if (customer.getId() != null) {
-			if(customerRepository.findById(customer.getId()).isPresent())throw new InvalidCustomerException("User with id:"+customer.getId()+" already present");
+	public User addCustomer(User user)throws InvalidCustomerException {
+		Optional<User> customer2 =customerRepository.findByEmail(user.getEmail());
+		if(customer2.isPresent())throw new InvalidCustomerException(user.getEmail()+" email already registered!");
+		if (user.getId() != null) {
+			if(customerRepository.findById(user.getId()).isPresent())throw new InvalidCustomerException("User with id:"+ user.getId()+" already present");
 		}
-		return customerRepository.save(customer);
+		return customerRepository.save(user);
 
 	}
 
 	@Override
-	public Customer updateCustomer(Customer customer) throws InvalidCustomerException{
+	public User updateCustomer(User user) throws InvalidCustomerException{
 
-		if (customer.getId() != null) {
-			if(customerRepository.findById(customer.getId()).isEmpty())throw new InvalidCustomerException("User with id:"+customer.getId()+" not found");
+		if (user.getId() != null) {
+			if(customerRepository.findById(user.getId()).isEmpty())throw new InvalidCustomerException("User with id:"+ user.getId()+" not found");
 		}else{
 			throw new InvalidCustomerException("No customer id mentioned");
 		}
 
 
-		return customerRepository.save(customer);
+		return customerRepository.save(user);
 	}
 
 	@Override
-	public Customer cancelCustomer(Long CustomerId)throws CustomerNotFoundException {
+	public User cancelCustomer(Long CustomerId)throws CustomerNotFoundException {
 
-		Customer existingCustomer = customerRepository.findById(CustomerId).orElseThrow(()-> new CustomerNotFoundException("Customer not fouund with this id :"+CustomerId));
+		User existingUser = customerRepository.findById(CustomerId).orElseThrow(()-> new CustomerNotFoundException("Customer not fouund with this id :"+CustomerId));
 		customerRepository.deleteById(CustomerId);
-		return existingCustomer;
+		return existingUser;
 	}
 
 	@Override
-	public List<Customer> showAllCustomers() throws InvalidCustomerException{
-		List<Customer> list= customerRepository.findAll();
+	public List<User> showAllCustomers() throws InvalidCustomerException{
+		List<User> list= customerRepository.findAll();
 		if(list.isEmpty())throw new InvalidCustomerException("No customer in database");
 		return list;
 	}
 
 	@Override
-	public Customer getCustomerById(Long CustomerId)throws CustomerNotFoundException {
-		Optional<Customer> customerOption=customerRepository.findById(CustomerId);
+	public User getCustomerById(Long CustomerId)throws CustomerNotFoundException {
+		Optional<User> customerOption=customerRepository.findById(CustomerId);
 		if(customerOption.isEmpty())throw new CustomerNotFoundException("No customer found with id : "+CustomerId);
 
 
@@ -76,61 +75,61 @@ public class CustomerServiceImpl implements CustomerService{
 
 	@Override
 	public Address addAddressToCustomer(Long CustomerId, Address address) throws CustomerNotFoundException {
-		Customer customer=getCustomerById(CustomerId);
-		address.setCustomer(customer);
+		User user =getCustomerById(CustomerId);
+		address.setUser(user);
 		return addressRepository.save(address);
 	}
 
 	@Override
 	public Address updateAddressOfCustomer(Long CustomerId, Long addressId, Address address) throws CustomerNotFoundException {
-		Customer customer=getCustomerById(CustomerId);
+		User user =getCustomerById(CustomerId);
 		boolean flag=false;
-		for(Address address1:customer.getAddresses()){
+		for(Address address1: user.getAddresses()){
 			if(addressId==address1.getAddId()){
 				flag=true;
 				address.setAddId(addressId);
-				customer.getAddresses().remove(address1);
-				customer.getAddresses().add(address);
+				user.getAddresses().remove(address1);
+				user.getAddresses().add(address);
 				break;
 			}
 		}
 		if(!flag)throw new CustomerNotFoundException("No address found for customer");
 
-		updateCustomer(customer);
+		updateCustomer(user);
 		return address;
 	}
 
 	@Override
 	public Address deleteAddressOfCustomer(Long CustomerId, Long addressId) throws CustomerNotFoundException {
-		Customer customer=getCustomerById(CustomerId);
+		User user =getCustomerById(CustomerId);
 		boolean flag=false;
 		Address address=null;
-		for(Address address1:customer.getAddresses()){
+		for(Address address1: user.getAddresses()){
 			if(addressId==address1.getAddId()){
 				flag=true;
 				address=address1;
-				customer.getAddresses().remove(address1);
+				user.getAddresses().remove(address1);
 				break;
 			}
 		}
 		if(!flag)throw new CustomerNotFoundException("No address found for customer");
-		address.setCustomer(null);
+		address.setUser(null);
 		addressRepository.delete(address);
 		return address;
 	}
 
 	@Override
 	public List<Address> getAllAddressByCustomerId(Long CustomerId) throws CustomerNotFoundException {
-		Customer customer=getCustomerById(CustomerId);
-		List<Address> list=customer.getAddresses();
+		User user =getCustomerById(CustomerId);
+		List<Address> list= user.getAddresses();
 		if(list.isEmpty())throw new CustomerNotFoundException("No address present for the given customer");
 
 		return list;
 	}
 
 	@Override
-	public Customer customerLogin(String email, String password) throws CustomerNotFoundException {
-		Optional<Customer> customer=customerRepository.findByEmailAndUserPassword(email,password);
+	public User customerLogin(String email, String password) throws CustomerNotFoundException {
+		Optional<User> customer=customerRepository.findByEmailAndUserPassword(email,password);
 		if(customer.isEmpty())throw new CustomerNotFoundException("Invalid credentials");
 		return customer.get();
 	}

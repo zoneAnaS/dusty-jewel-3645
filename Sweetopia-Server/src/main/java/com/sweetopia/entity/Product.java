@@ -3,7 +3,9 @@ package com.sweetopia.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,16 +17,16 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
 
-
     private String name;
 
-
+    @NotNull
+    @NotBlank
     private String photoPath;
-
-
+    @Min(1)
     private Double price;
 
-
+    @NotNull
+    @NotBlank
     private String description;
 
 

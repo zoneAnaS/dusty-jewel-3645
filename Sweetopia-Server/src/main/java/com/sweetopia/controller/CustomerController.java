@@ -6,15 +6,12 @@ import com.sweetopia.dto.CustomerDTO;
 import com.sweetopia.dto.CustomerLoginDTO;
 import com.sweetopia.entity.Address;
 import com.sweetopia.entity.Cart;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.sweetopia.entity.Customer;
-import com.sweetopia.exception.CustomerNotFoundException;
-import com.sweetopia.exception.InvalidCustomerException;
+import com.sweetopia.entity.User;
 import com.sweetopia.service.CustomerService;
 
 
@@ -30,39 +27,39 @@ public class CustomerController {
 	private CustomerService customerService;
 	
 	@PostMapping
-	public ResponseEntity<Customer> addCustomer(@RequestBody CustomerDTO customerDTO){
-		Customer customer=new Customer();
-		customer.setUserName(customerDTO.getUserName());
-		customer.setUserPassword(customerDTO.getUserPassword());
-		customer.setEmail(customerDTO.getEmail());
+	public ResponseEntity<User> addCustomer(@RequestBody CustomerDTO customerDTO){
+		User user =new User();
+		user.setUserName(customerDTO.getUserName());
+		user.setUserPassword(customerDTO.getUserPassword());
+		user.setEmail(customerDTO.getEmail());
 		Cart cart=new Cart();
-		customer.setCart(cart);
+		user.setCart(cart);
 
-			customerService.addCustomer(customer);
-			return ResponseEntity.status(HttpStatus.CREATED).body(customer);
+			customerService.addCustomer(user);
+			return ResponseEntity.status(HttpStatus.CREATED).body(user);
 
 	}
 	
 	@PutMapping("/{customerId}")
-	public ResponseEntity<Customer> updateCustomer(@PathVariable("customerId")Long customerId,@RequestBody Customer customer){
+	public ResponseEntity<User> updateCustomer(@PathVariable("customerId")Long customerId, @RequestBody User user){
 
-			customer.setId(customerId);
-			customerService.updateCustomer(customer);
+			user.setId(customerId);
+			customerService.updateCustomer(user);
 			return ResponseEntity.ok().build();
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<Customer>> showAllCustomers(){
+	public ResponseEntity<List<User>> showAllCustomers(){
 		
-		List<Customer> customers = customerService.showAllCustomers();
-		return ResponseEntity.ok(customers);
+		List<User> users = customerService.showAllCustomers();
+		return ResponseEntity.ok(users);
 	}
 	
 	@GetMapping("/{customerId}")
-	public ResponseEntity<Customer> showCustomerById(@PathVariable("customerId")Long customerId) {
+	public ResponseEntity<User> showCustomerById(@PathVariable("customerId")Long customerId) {
 
-		Customer customer = customerService.getCustomerById(customerId);
-		return ResponseEntity.ok(customer);
+		User user = customerService.getCustomerById(customerId);
+		return ResponseEntity.ok(user);
 	}
 	@GetMapping("/{customerId}/addresses")
 	public ResponseEntity<List<Address>> getAlladdress(@PathVariable Long customerId){
@@ -85,10 +82,10 @@ public class CustomerController {
 		return new ResponseEntity<>(address1,HttpStatus.ACCEPTED);
 	}
 	@PostMapping("/login")
-	public ResponseEntity<Customer> loginCustomer(@RequestBody CustomerLoginDTO customerDTO){
+	public ResponseEntity<User> loginCustomer(@RequestBody CustomerLoginDTO customerDTO){
 
-		Customer customer=customerService.customerLogin(customerDTO.getEmail(),customerDTO.getUserPassword());
-		return new ResponseEntity<>(customer,HttpStatus.ACCEPTED);
+		User user =customerService.customerLogin(customerDTO.getEmail(),customerDTO.getUserPassword());
+		return new ResponseEntity<>(user,HttpStatus.ACCEPTED);
 	}
 	
 	

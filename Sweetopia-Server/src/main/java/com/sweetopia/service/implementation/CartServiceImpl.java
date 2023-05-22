@@ -7,7 +7,7 @@ import com.sweetopia.dto.ProductDTO;
 import com.sweetopia.entity.User;
 import com.sweetopia.entity.Product;
 import com.sweetopia.exception.ProductException;
-import com.sweetopia.service.CustomerService;
+import com.sweetopia.service.UserService;
 import com.sweetopia.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -25,7 +25,7 @@ public class CartServiceImpl implements CartService{
 	@Autowired
 	private CartRepository CartRepository;
 	@Autowired
-	private CustomerService customerService;
+	private UserService userService;
 	@Autowired
 	private ProductService productService;
 	
@@ -81,7 +81,7 @@ public class CartServiceImpl implements CartService{
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public Cart addProductToCart(Long customerId, Long ProductId, Integer quantity) throws ProductException {
-		User user =customerService.getCustomerById(customerId);
+		User user = userService.getCustomerById(customerId);
 		Product product=productService.getProductById(ProductId);
 		if(product.getAvailable()<quantity)throw new ProductException("Product only has "+product.getAvailable()+" stock");
 		product.setAvailable(product.getAvailable()-quantity);

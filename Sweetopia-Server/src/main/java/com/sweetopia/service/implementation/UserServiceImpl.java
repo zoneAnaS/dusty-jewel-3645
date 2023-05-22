@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.sweetopia.entity.Address;
+import com.sweetopia.entity.Role;
 import com.sweetopia.repository.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,11 +13,11 @@ import com.sweetopia.entity.User;
 import com.sweetopia.exception.CustomerNotFoundException;
 import com.sweetopia.exception.InvalidCustomerException;
 import com.sweetopia.repository.CustomerRepository;
-import com.sweetopia.service.CustomerService;
+import com.sweetopia.service.UserService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CustomerServiceImpl implements CustomerService{
+public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private CustomerRepository customerRepository;
@@ -35,16 +36,15 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public User updateCustomer(User user) throws InvalidCustomerException{
+	public User updateCustomer(Long id,User user) throws InvalidCustomerException{
 
-		if (user.getId() != null) {
-			if(customerRepository.findById(user.getId()).isEmpty())throw new InvalidCustomerException("User with id:"+ user.getId()+" not found");
-		}else{
-			throw new InvalidCustomerException("No customer id mentioned");
-		}
+		User user1=getCustomerById(id);
+		if(user.getUserName()!=null)user1.setUserName(user.getUserName());
+		if(user.getUserPassword()!=null)user1.setUserPassword(user.getUserPassword());
 
 
-		return customerRepository.save(user);
+
+		return customerRepository.save(user1);
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class CustomerServiceImpl implements CustomerService{
 
 	@Override
 	public List<User> showAllCustomers() throws InvalidCustomerException{
-		List<User> list= customerRepository.findAll();
+		List<User> list= customerRepository.findAll().stream().filter(user->user.getRole()== Role.Customer).toList();
 		if(list.isEmpty())throw new InvalidCustomerException("No customer in database");
 		return list;
 	}
@@ -66,8 +66,6 @@ public class CustomerServiceImpl implements CustomerService{
 	public User getCustomerById(Long CustomerId)throws CustomerNotFoundException {
 		Optional<User> customerOption=customerRepository.findById(CustomerId);
 		if(customerOption.isEmpty())throw new CustomerNotFoundException("No customer found with id : "+CustomerId);
-
-
 		return customerOption.get();
 
 
@@ -95,7 +93,7 @@ public class CustomerServiceImpl implements CustomerService{
 		}
 		if(!flag)throw new CustomerNotFoundException("No address found for customer");
 
-		updateCustomer(user);
+		updateCustomer(CustomerId,user);
 		return address;
 	}
 

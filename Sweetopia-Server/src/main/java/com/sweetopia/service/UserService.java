@@ -7,10 +7,10 @@ import com.sweetopia.entity.User;
 import com.sweetopia.exception.CustomerNotFoundException;
 import com.sweetopia.exception.InvalidCustomerException;
 
-public interface CustomerService {
+public interface UserService {
 
 	public User addCustomer(User user) throws InvalidCustomerException ;
-	public User updateCustomer(User user) throws InvalidCustomerException ;
+	public User updateCustomer(Long id,User user) throws InvalidCustomerException ;
 	public User cancelCustomer(Long CustomerId) throws CustomerNotFoundException;
 	public List<User> showAllCustomers();
 	public User getCustomerById(Long CustomerId) throws CustomerNotFoundException;

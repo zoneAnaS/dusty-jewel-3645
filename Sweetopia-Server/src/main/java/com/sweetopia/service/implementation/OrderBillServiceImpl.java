@@ -7,7 +7,7 @@ import java.util.Optional;
 import com.sweetopia.dto.ProductDTO;
 import com.sweetopia.entity.User;
 import com.sweetopia.entity.Order;
-import com.sweetopia.service.CustomerService;
+import com.sweetopia.service.UserService;
 import com.sweetopia.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,7 @@ public class OrderBillServiceImpl implements OrderBillService {
 	private OrderBillRepository orderbillrepository;
 
 	@Autowired
-	private CustomerService customerService;
+	private UserService userService;
 	@Autowired
 	private OrderService orderService;
 
@@ -103,7 +103,7 @@ public class OrderBillServiceImpl implements OrderBillService {
 
 	@Override
 	public List<OrderBill> showAllBillOfCustomer(Long customerId) throws OrderBillNotFoundException {
-		User user =customerService.getCustomerById(customerId);
+		User user = userService.getCustomerById(customerId);
 		List<OrderBill> list = new ArrayList<>();
 		for(Order order: user.getOrders()){
 			if(order.getOrderBill()!=null){

@@ -9,7 +9,7 @@ import com.sweetopia.entity.Cart;
 import com.sweetopia.entity.User;
 import com.sweetopia.exception.ProductException;
 import com.sweetopia.service.CartService;
-import com.sweetopia.service.CustomerService;
+import com.sweetopia.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +24,7 @@ public class OrderServiceImpl implements OrderService{
 	@Autowired
 	private OrderRepository orderrepository;
 	@Autowired
-	private CustomerService customerService;
+	private UserService userService;
 	@Autowired
 	private CartService cartService;
 
@@ -33,7 +33,7 @@ public class OrderServiceImpl implements OrderService{
 	public Order addSweetOrder(Long customerId) throws OrderNotFoundException, ProductException {
 		// TODO Auto-generated method
 
-		User user =customerService.getCustomerById(customerId);
+		User user = userService.getCustomerById(customerId);
 		List<ProductDTO> list= user.getCart().getListProduct();
 		System.out.println(list);
 		if(list.isEmpty())throw new OrderNotFoundException("Cart is empty add product to cart");
@@ -65,7 +65,7 @@ public class OrderServiceImpl implements OrderService{
 		}else{
 			throw new OrderNotFoundException("Order id cannot be null");
 		}
-		User user =customerService.getCustomerById(customerId);
+		User user = userService.getCustomerById(customerId);
 		boolean flag=false;
 		for(Order order1: user.getOrders()){
 			if(order1.getOrderId()==order.getOrderId()){

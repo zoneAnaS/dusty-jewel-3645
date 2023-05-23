@@ -1,123 +1,135 @@
-//
-//
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Service;
-//
-//import com.sweetopia.entity.User;
-//import com.sweetopia.exception.AdminNotFoundException;
-//import com.sweetopia.repository.UserRepository;
-//import com.sweetopia.service.UserService;
-//
-////package com.sweetopia.service.implementation;
-//////package com.sweetopia.service.implementation;
-//////
-//////import java.util.List;
-//////import java.util.Optional;
-//////
-//////import com.sweetopia.entity.Admin;
-//////import com.sweetopia.entity.Customer;
-//////import com.sweetopia.exception.CustomerNotFoundException;
-//////import com.sweetopia.exception.UserNotFoundException;
-//////
-//
-//@Service
-//public class UserServiceImpl implements UserService {
-//	
-//	@Autowired
-//	private UserRepository userRepository;
-//	
-//	
-//
-//	@Override
-//	public org.springframework.security.core.userdetails.User loadUserByUsername(String username) throws AdminNotFoundException {
-//		// TODO Auto-generated method stub
-//		User user = userRepository.findByUsername(username);
-//        if (user == null) {
-//            throw new AdminNotFoundException("Admin not found");
-//        }
-////        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), new ArrayList<>());
-////		return null;
-//        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), new ArrayList<>());
-//	}
-//
-//
-//
-//	@Override
-//	public User saveUser(User user) {
-//		// TODO Auto-generated method stub
-//		
-//		User savedUser = userRepository.save(user);
-////		
-//		return savedUser;
-//	}
-//
-//
-//
-//	
-//	
-//}	
-////	public User addUser(User newUser) throws UserNotFoundException {
-////		// TODO Auto-generated method stub
-////		if(newUser.getId()!=null) {
-////			Long id= newUser.getId();
-////			if(userRepository.findById(id).isPresent()) {
-////				throw new UserNotFoundException();
-////			}
-////		}
-////		User savedUser = userRepository.save(newUser);
-////		
-////		return savedUser;
-////	}
-////
-////	@Override
-////	public List<User> getAllUser() throws UserNotFoundException {
-////		// TODO Auto-generated method stub
-////		List<User> users = userRepository.findAll();
-////		if(users.isEmpty()) {
-////			throw new UserNotFoundException("User Not Found");
-////		}else
-////		return users;
-////	}
-////
-////	@Override
-////	public User updateUserDetails(User user) throws UserNotFoundException {
-////		// TODO Auto-generated method stub
-////		Optional<User> opt = userRepository.findById(user.getId());
-////		if(opt.isEmpty()) {
-////			throw new UserNotFoundException();
-////		}else
-////			return userRepository.save(user);
-////		
-////	}
-////
-////	@Override
-////	public String deleteUser(Long id) throws UserNotFoundException {
-////		// TODO Auto-generated method stub
-////		Optional<User> opt = userRepository.findById(id);
-////		if(opt.isPresent()) {
-////			userRepository.deleteById(id);
-////			return "User has been successfully deleted";
-////		}else
-////			throw new UserNotFoundException();
-////		
-////	}
-////
-////	@Override
-////	public String deleteAllUser() {
-////		// TODO Auto-generated method stub
-////		userRepository.deleteAll();
-////		return "All users are successfully deleted";
-////	}
-////
-////	@Override
-////	public Admin addAdmin(Admin newUser) throws UserNotFoundException {
-////		// TODO Auto-generated method stub
-////		return null;
-////	}
-////
-////	@Override
-////	public Customer adminLogin(String email, String password) throws CustomerNotFoundException {
-////		// TODO Auto-generated method stub
-////		return null;
-////	}
-////}
+package com.sweetopia.service.implementation;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.sweetopia.entity.Address;
+import com.sweetopia.entity.Role;
+import com.sweetopia.repository.AddressRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.sweetopia.entity.User;
+
+import com.sweetopia.exception.CustomerNotFoundException;
+import com.sweetopia.exception.InvalidCustomerException;
+import com.sweetopia.repository.CustomerRepository;
+import com.sweetopia.service.UserService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private CustomerRepository customerRepository;
+	@Autowired
+	private AddressRepository addressRepository;
+
+	@Override
+	public User addCustomer(User user)throws InvalidCustomerException {
+		Optional<User> customer2 =customerRepository.findByEmail(user.getEmail());
+		if(customer2.isPresent())throw new InvalidCustomerException(user.getEmail()+" email already registered!");
+		if (user.getId() != null) {
+			if(customerRepository.findById(user.getId()).isPresent())throw new InvalidCustomerException("User with id:"+ user.getId()+" already present");
+		}
+		return customerRepository.save(user);
+
+	}
+
+	@Override
+	public User updateCustomer(Long id,User user) throws InvalidCustomerException{
+
+		User user1=getCustomerById(id);
+		if(user.getUserName()!=null)user1.setUserName(user.getUserName());
+		if(user.getUserPassword()!=null)user1.setUserPassword(user.getUserPassword());
+
+
+
+		return customerRepository.save(user1);
+	}
+
+	@Override
+	public User cancelCustomer(Long CustomerId)throws CustomerNotFoundException {
+
+		User existingUser = customerRepository.findById(CustomerId).orElseThrow(()-> new CustomerNotFoundException("Customer not fouund with this id :"+CustomerId));
+		customerRepository.deleteById(CustomerId);
+		return existingUser;
+	}
+
+	@Override
+	public List<User> showAllCustomers() throws InvalidCustomerException{
+		List<User> list= customerRepository.findAll().stream().filter(user->user.getRole()== Role.Customer).toList();
+		if(list.isEmpty())throw new InvalidCustomerException("No customer in database");
+		return list;
+	}
+
+	@Override
+	public User getCustomerById(Long CustomerId)throws CustomerNotFoundException {
+		Optional<User> customerOption=customerRepository.findById(CustomerId);
+		if(customerOption.isEmpty())throw new CustomerNotFoundException("No customer found with id : "+CustomerId);
+		return customerOption.get();
+
+
+	}
+
+	@Override
+	public Address addAddressToCustomer(Long CustomerId, Address address) throws CustomerNotFoundException {
+		User user =getCustomerById(CustomerId);
+		address.setUser(user);
+		return addressRepository.save(address);
+	}
+
+	@Override
+	public Address updateAddressOfCustomer(Long CustomerId, Long addressId, Address address) throws CustomerNotFoundException {
+		User user =getCustomerById(CustomerId);
+		boolean flag=false;
+		for(Address address1: user.getAddresses()){
+			if(addressId==address1.getAddId()){
+				flag=true;
+				address.setAddId(addressId);
+				user.getAddresses().remove(address1);
+				user.getAddresses().add(address);
+				break;
+			}
+		}
+		if(!flag)throw new CustomerNotFoundException("No address found for customer");
+
+		updateCustomer(CustomerId,user);
+		return address;
+	}
+
+	@Override
+	public Address deleteAddressOfCustomer(Long CustomerId, Long addressId) throws CustomerNotFoundException {
+		User user =getCustomerById(CustomerId);
+		boolean flag=false;
+		Address address=null;
+		for(Address address1: user.getAddresses()){
+			if(addressId==address1.getAddId()){
+				flag=true;
+				address=address1;
+				user.getAddresses().remove(address1);
+				break;
+			}
+		}
+		if(!flag)throw new CustomerNotFoundException("No address found for customer");
+		address.setUser(null);
+		addressRepository.delete(address);
+		return address;
+	}
+
+	@Override
+	public List<Address> getAllAddressByCustomerId(Long CustomerId) throws CustomerNotFoundException {
+		User user =getCustomerById(CustomerId);
+		List<Address> list= user.getAddresses();
+		if(list.isEmpty())throw new CustomerNotFoundException("No address present for the given customer");
+
+		return list;
+	}
+
+	@Override
+	public User customerLogin(String email, String password) throws CustomerNotFoundException {
+		Optional<User> customer=customerRepository.findByEmailAndUserPassword(email,password);
+		if(customer.isEmpty())throw new CustomerNotFoundException("Invalid credentials");
+		return customer.get();
+	}
+
+}

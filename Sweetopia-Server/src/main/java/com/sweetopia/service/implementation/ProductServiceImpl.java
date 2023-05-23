@@ -92,4 +92,12 @@ public class ProductServiceImpl implements ProductService {
         List<Product> products=productRepository.findByNameLike("%"+productName+"%");
         return products;
     }
+
+    @Override
+    public Product removeQuantity(Long productId, Integer quantity) throws ProductException {
+        Product p=this.getProductById(productId);
+        if(p.getAvailable()<quantity)throw new ProductException("Product ha only "+p.getAvailable());
+        p.setAvailable(p.getAvailable()-quantity);
+        return productRepository.save(p);
+    }
 }

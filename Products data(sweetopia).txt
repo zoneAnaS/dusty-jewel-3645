@@ -1,0 +1,1077 @@
+[ 
+ {    "name": "Gulab Jamun", 
+   "photoPath": "https://thebellyrulesthemind.net/wp-content/uploads/2021/02/Gulab-Jamun-3-682x1024.jpg",   
+ "price": 100,  
+  "description": "An Indian sweet dish made with milk solids and sugar syrup. It is soft, spongy, and melts in your mouth.",  
+  "available": 20,  
+  "category": {     
+	 "categoryName": "Indian Sweet",   
+	   "categoryImage": "https://i.pinimg.com/originals/e1/26/6b/e1266b060aaa3be350478fcb360d2549.jpg"  
+	  } 
+ }, 
+
+ {    
+"name": "Rasgulla",  
+  "photoPath": "https://cdn.tarladalal.com/members/9306/big/big_rasgulla_(__mithai)-14799.jpg",  
+  "price": 120, 
+   "description": "A spongy and syrupy dessert made from chenna (cottage cheese) and semolina dough, originated in the eastern regions of India and Bangladesh.",  
+  "available": 20,  
+  "category": 
+	{     
+	 "categoryName": "Indian Sweet",  
+	    "categoryImage": "categoryImage"   
+	 }  
+}, 
+
+ {  
+  "name": "Baklava", 
+   "photoPath": "https://cleobuttera.com/wp-content/uploads/2018/03/baklava-side-closeup.jpg",   
+ "price": 150,   
+ "description": "A Middle Eastern pastry made of layers of phyllo dough filled with chopped nuts and sweetened with honey syrup", 
+   "available": 20,  
+  "category": 
+	{     
+	 "categoryName": "Indian Sweet",   
+	   "categoryImage": "categoryImage"   
+	 }
+  },
+
+ {
+    "name": "Jalebi",
+    "photoPath": "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/11/jalebi.jpg",
+    "price": 80,
+    "description": "A popular Indian and Middle Eastern sweet made from deep-fried batter soaked in sugar syrup, usually orange in color and served as a dessert or snack.",
+    "available": 20,
+    "category": {
+      "categoryName": "Indian sweet",
+      "categoryImage": "https://example.com/images/indian_sweets.jpg"
+    }
+  },
+{
+    "name": "Ladoo",
+    "photoPath": "https://www.vegrecipesofindia.com/wp-content/uploads/2013/10/besan-ladoo-1.jpg",
+    "price": 90,
+    "description": "A traditional Indian sweet made from flour, sugar, and ghee, shaped into small round balls and often flavored with nuts, cardamom, and saffron.",
+    "available": 20,
+    "category": {
+      "categoryName": "Indian sweet",
+      "categoryImage": "https://example.com/images/indian_sweets.jpg"
+    }
+  },
+{
+    "name": "Barfi",
+    "photoPath": "https://www.sanjanafeasts.co.uk/wp-content/uploads/2021/10/Perfect-Besan-Barfi-recipe.jpg",
+    "price": 110,
+    "description": "A dense and sweet Indian dessert made from condensed milk, sugar, and ground nuts or coconut, often flavored with cardamom or rosewater and cut into diamond shapes.",
+    "available": 20,
+    "category": {
+      "categoryName": "Indian sweet",
+      "categoryImage": "https://example.com/images/indian_sweets.jpg"
+    }
+  },
+{
+    "name": "Rasmalai",
+    "photoPath": "https://www.cookingcarnival.com/wp-content/uploads/2016/03/Rasmalai.jpg",
+    "price": 130,
+    "description": "A popular Indian dessert made from spongy chenna (cottage cheese) balls soaked in sweetened, thickened milk, flavored with cardamom, saffron, and pistachios.",
+    "available": 20,
+    "category": {
+      "categoryName": "Indian sweet",
+      "categoryImage": "https://example.com/images/indian_sweets.jpg"
+    }
+  },
+{
+    "name": "Gajar ka Halwa",
+    "photoPath": "https://www.whiskaffair.com/wp-content/uploads/2019/05/Gajar-Ka-Halwa-2-1.jpg",
+    "price": 150,
+    "description": "A delicious and aromatic Indian dessert made from grated carrots, milk, sugar, ghee, and nuts, often served warm during festivals and special occasions.",
+    "available": 20,
+    "category": {
+      "categoryName": "Indian sweet",
+      "categoryImage": "https://example.com/images/indian_sweets.jpg"
+    }
+  },
+
+
+{
+    "name": "Sandesh",
+    "photoPath": "https://www.scratchingcanvas.com/wp-content/uploads/2020/10/Diabetic-Sandesh.1i-2.jpg",
+    "price": 100,
+    "description": "A popular Bengali sweet made from fresh chenna (cottage cheese) mixed with sugar, cardamom, and shaped into various forms, often garnished with pistachios or saffron.",
+    "available": 20,
+    "category": {
+      "categoryName": "Indian sweet",
+      "categoryImage": "https://example.com/images"
+     }
+   },
+
+{
+"name": "Kaju Katli",
+"photoPath": "http://www.flavorsofmumbai.com/wp-content/uploads/2015/08/Kaju-Katli-Recipe-18.jpg",
+"price": 14.99,
+"description": "A diamond-shaped sweet made with ground cashews and sugar, flavored with cardamom and decorated with edible silver leaf.",
+"available": 20,
+"category": {
+"categoryName": "Indian sweet",
+"categoryImage": "https://example.com/images/gujaratisweets"
+}
+},
+
+{
+"name": "Mohanthal",
+"photoPath": "https://www.blendwithspices.com/wp-content/uploads/2014/03/mohanthal-2.jpg",
+"price": 10.99,
+"description": "A traditional sweet made with besan (gram flour), ghee, sugar, and flavored with saffron and cardamom, garnished with nuts.",
+"available": 20,
+"category": {
+"categoryName": "Indian sweet",
+"categoryImage": "https://example.com/images/gujaratisweets"
+}
+},
+
+{
+"name": "Peda",
+"photoPath": "https://mytastycurry.com/wp-content/uploads/2021/10/Instant-Kesar-Peda-recipe-in-10-minutes.jpg",
+"price": 9.99,
+"description": "A milk-based sweet made with khoya (milk solids), sugar, and flavored with cardamom, shaped into small rounds and garnished with pistachios.",
+"available": 20,
+"category": {
+"categoryName": "Indian sweet",
+"categoryImage": "https://example.com/images/gujaratisweets"
+}
+},
+
+{
+"name": "Shrikhand",
+"photoPath": "https://www.mygingergarlickitchen.com/wp-content/uploads/2021/03/thandai-shrikhand-1.jpg",
+"price": 13.99,
+"description": "A creamy sweet made with strained yogurt (hung curd), sugar, and flavored with cardamom and saffron, garnished with nuts.",
+"available": 20,
+"category": {
+"categoryName": "Indian sweet",
+"categoryImage": "https://example.com/images/gujaratisweets"
+}
+},
+
+
+{
+"name": "Mava Peda",
+"photoPath": "https://rachnas-kitchen.com/wp-content/uploads/2015/05/dhoodh-peda-21.jpg",
+"price": 11.99,
+"description": "A milk-based sweet made with khoya (milk solids), sugar, and flavored with cardamom, shaped into small rounds and garnished with pistachios.",
+"available": 20,
+"category": {
+"categoryName": "Indian sweet",
+"categoryImage": "https://example.com/images/gujaratisweets"
+}
+},
+
+{
+"name": "Doodh Pak",
+"photoPath": "https://i0.wp.com/cookingfromheart.com/wp-content/uploads/2020/07/Doodhpak-5.jpg?resize=720%2C960&ssl=1",
+"price": 14.99,
+"description": "A creamy sweet made with milk, sugar, and flavored with cardamom, garnished with saffron and nuts.",
+"available": 20,
+"category": {
+"categoryName": "Indian sweet",
+"categoryImage": "https://example.com/images/gujaratisweets"
+}
+},
+
+{
+"name": "Ghevar",
+"photoPath": "https://www.mygingergarlickitchen.com/wp-content/uploads/2017/08/01-food-styling-of-How-To-Make-Rajasthani-Malai-Ghevar-by-my-ginger-garlic-kitchen.jpg",
+"price": 10.99,
+"description": "A Rajasthani sweet made with flour, ghee, and sugar, soaked in sugar syrup and garnished with silver leaf and nuts.",
+"available": 20,
+"category": {
+"categoryName": "Indian sweet",
+"categoryImage": "https://example.com/images/gujaratisweets"
+}
+},
+
+{
+"name": "Mathura Peda",
+"photoPath": "https://gaurishankarmithaiwala.com/wp-content/uploads/2022/10/mathura-peda.jpg",
+"price": 9.99,
+"description": "A milk-based sweet made with khoya (milk solids), sugar, and flavored with cardamom, shaped into small rounds and garnished with pistachios.",
+"available": 20,
+"category": {
+"categoryName": "Indian sweet",
+"categoryImage": "https://example.com/images/gujaratisweets"
+}
+},
+
+{
+"name": "Besan Ladoo",
+"photoPath": "https://spicecravings.com/wp-content/uploads/2017/10/Besan-Ladoo-5.jpg",
+"price": 8.99,
+"description": "A round-shaped sweet made with besan (gram flour), ghee, sugar, and flavored with cardamom, garnished with nuts.",
+"available": 20,
+"category": {
+"categoryName": "Indian sweet",
+"categoryImage": "https://example.com/images/gujaratisweets"
+}
+},
+
+{
+"name": "Balushahi",
+"photoPath": "https://www.cubesnjuliennes.com/wp-content/uploads/2019/03/Sweet-Balushahi-recipe.jpg",
+"price": 12.99,
+"description": "A deep-fried sweet made with flour, ghee, and sugar, soaked in sugar syrup and garnished with nuts.",
+"available": 20,
+"category": {
+"categoryName": "Indian sweet",
+"categoryImage": "https://example.com/images/gujaratisweets"
+}
+},
+
+
+{
+   "name": "Chocolate Fudge Brownies",
+   "photoPath": "https://i2.wp.com/bakerbettie.com/wp-content/uploads/2013/05/easy-brownie-recipe-1-.jpg",
+   "price": 4.99,
+  "description": "Rich and decadent, these brownies are made with premium chocolate and walnuts for a satisfying crunch.",
+  "available": 20,
+  "category": {
+  "categoryName": "American sweet",
+  "categoryImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYbGBuIhXnEAMhS91d50YT_svO6o5g2cWmgw&usqp=CAU"
+ }
+},
+
+
+{
+"name": "Key Lime Pie",
+"photoPath": "https://www.twopeasandtheirpod.com/wp-content/uploads/2020/06/key-lime-pie-6.jpg",
+"price": 6.99,
+"description": "Made with fresh key limes, this tangy pie is the perfect balance of sweet and sour.",
+"available": 20,
+"category": {
+"categoryName": "American sweet",
+"categoryImage": "https://example.com/images/americansweets"
+}
+},
+
+
+{
+"name": "Peanut Butter Cookies",
+"photoPath": "https://www.chocolatemoosey.com/wp-content/uploads/2020/04/Small-Batch-Peanut-Butter-Cookies-recipe-photo-0627.jpg",
+"price": 3.99,
+"description": "Soft and chewy, these classic cookies are made with creamy peanut butter for a deliciously nutty flavor.",
+"available": 20,
+"category": {
+"categoryName": "American sweet",
+"categoryImage": "https://example.com/images/americansweets"
+}
+},
+
+{
+"name": "Red Velvet Cupcakes",
+"photoPath": "https://www.thecuriouschickpea.com/wp-content/uploads/2020/10/red-velvet-cupcakes-1.jpg",
+"price": 5.99,
+"description": "Moist and fluffy, these cupcakes are made with buttermilk and cocoa powder for a rich, velvety texture.",
+"available": 20,
+"category": {
+"categoryName": "American sweet",
+"categoryImage": "https://example.com/images/americansweets"
+}
+},
+
+{
+"name": "Blueberry Cheesecake",
+"photoPath": "https://www.pookspantry.com/wp-content/uploads/2021/05/no-bake-blueberry-cheesecake-bars.jpg",
+"price": 7.99,
+"description": "Creamy and indulgent, this cheesecake is loaded with fresh blueberries for a burst of fruity flavor.",
+"available": 20,
+"category": {
+"categoryName": "American sweet",
+"categoryImage": "https://example.com/images/americansweets"
+}
+},
+
+
+{
+"name": "Cinnamon Rolls",
+"photoPath": "https://thebananadiaries.com/wp-content/uploads/2021/09/best-vegan-cinnamon-rolls_9103.jpg",
+"price": 4.99,
+"description": "Warm and gooey, these rolls are made with cinnamon and brown sugar for a sweet and spicy kick.",
+"available": 20,
+"category": {
+"categoryName": "American sweet",
+"categoryImage": "https://example.com/images/americansweets"
+}
+},
+
+{
+"name": "Salted Caramel Popcorn",
+"photoPath": "https://i0.wp.com/thetwincookingproject.net/wp-content/uploads/2020/03/Salted-Caramel-Popcorn-14-1.jpg?resize=610%2C914&ssl=1",
+"price": 2.99,
+"description": "Crunchy and addictive, this popcorn is coated in a rich caramel sauce and sprinkled with sea salt.",
+"available": 20,
+"category": {
+"categoryName": "American sweet",
+"categoryImage": "https://example.com/images/americansweets"
+}
+},
+
+{
+"name": "Apple Pie",
+"photoPath": "https://www.cubesnjuliennes.com/wp-content/uploads/2020/11/Apple-Pie-5.jpg",
+"price": 8.99,
+"description": "This classic pie is made with crisp, tart apples and a flaky, buttery crust. Perfect for any occasion!",
+"available": 20,
+"category": {
+"categoryName": "American sweet",
+"categoryImage": "https://example.com/images/americansweets"
+}
+},
+
+{
+"name": "Smores Bars",
+"photoPath": "https://www.littlesweetbaker.com/wp-content/uploads/2020/07/smores-bars-1.jpg",
+"price": 4.99,
+"description": "These bars capture the classic smores flavor with graham cracker crumbs, marshmallow, and chocolate chips.",
+"available": 20,
+"category": {
+"categoryName": "American sweet",
+"categoryImage": "https://example.com/images/americansweets"
+}
+},
+
+{
+"name": "Pecan Pralines",
+"photoPath": "https://www.browneyedbaker.com/wp-content/uploads/2020/11/pecan-pralines-13-1600.jpg",
+"price": 7.99,
+"description": "Made with toasted pecans and a rich, caramelized sauce, these pralines are a Southern classic.",
+"available": 20,
+"category": {
+"categoryName": "American sweet",
+"categoryImage": "https://example.com/images/americansweets"
+}
+},
+
+
+{
+"name": "Cannoli",
+"photoPath": "https://www.insidetherustickitchen.com/wp-content/uploads/2021/02/Homemade-Cannoli-1200px-Inside-the-Rustic-Kitchen-2.jpg",
+"price": 4.99,
+"description": "A tube-shaped pastry shell filled with sweet ricotta cheese and chocolate chips, dusted with powdered sugar.",
+"available": 20,
+"category": {
+"categoryName": "Italian sweet",
+"categoryImage": "https://i.pinimg.com/474x/45/51/f6/4551f6cbcdc8c6c8e5e59ab2ffcb757e.jpg"
+}
+},
+
+{
+"name": "Panna Cotta",
+"photoPath": "https://myfoodstory.com/wp-content/uploads/2021/02/How-to-make-Panna-Cotta-Classic-Vanilla-3.jpg",
+"price": 6.99,
+"description": "A silky smooth custard made with cream, sugar, and gelatin, topped with fresh berries and a drizzle of honey.",
+"available": 20,
+"category": {
+"categoryName": "Italian sweet",
+"categoryImage": "https://example.com/images/italiansweets"
+}
+},
+
+{
+"name": "Torrone",
+"photoPath": "https://cdn11.bigcommerce.com/s-cjh14ahqln/product_images/uploaded_images/torrone-cut-web.jpg",
+"price": 3.99,
+"description": "A traditional Italian nougat made with honey, sugar, and toasted almonds, cut into bite-sized pieces.",
+"available": 20,
+"category": {
+"categoryName": "Italian sweet",
+"categoryImage": "https://example.com/images/italiansweets"
+}
+},
+
+{
+"name": "Biscotti",
+"photoPath": "https://www.aheadofthyme.com/wp-content/uploads/2020/05/easy-small-batch-almond-biscotti-14-rotated.jpg",
+"price": 5.99,
+"description": "A twice-baked cookie with a crunchy texture and a hint of anise flavor, perfect for dunking in coffee or tea.",
+"available": 20,
+"category": {
+"categoryName": "Italian sweet",
+"categoryImage": "https://example.com/images/italiansweets"
+}
+},
+
+{
+"name": "Zeppole",
+"photoPath": "https://natashaskitchen.com/wp-content/uploads/2021/03/Zeppole-Italian-Doughnuts-6-728x1092.jpg",
+"price": 7.99,
+"description": "A deep-fried pastry dough ball filled with sweet ricotta cream, dusted with powdered sugar and cinnamon.",
+"available": 20,
+"category": {
+"categoryName": "Italian sweet",
+"categoryImage": "https://example.com/images/italiansweets"
+}
+},
+
+{
+"name": "Sfogliatelle",
+"photoPath": "https://www.sbs.com.au/food/sites/sbs.com.au.food/files/shortcrust-pastry-sfogliatelle.jpg",
+"price": 9.99,
+"description": "A shell-shaped pastry filled with sweet ricotta cream and candied citrus peel, dusted with powdered sugar.",
+"available": 20,
+"category": {
+"categoryName": "Italian sweet",
+"categoryImage": "https://example.com/images/italiansweets"
+}
+},
+
+{
+"name": "Torta Caprese",
+"photoPath": "https://www.insidetherustickitchen.com/wp-content/uploads/2022/02/Torta-Caprese-1200px-Inside-the-Rustic-Kitchen-2.jpg",
+"price": 11.99,
+"description": "A dense chocolate cake made with almond flour and dusted with cocoa powder and powdered sugar.",
+"available": 20,
+"category": {
+"categoryName": "Italian sweet",
+"categoryImage": "https://example.com/images/italiansweets"
+}
+},
+
+{
+"name": "Tartufo",
+"photoPath": "https://www.valnerinatartufi.net/wp-content/uploads/2022/04/sugoprontotartufo.jpg",
+"price": 8.99,
+"description": "A truffle-shaped dessert made with chocolate and hazelnut gelato, coated in cocoa powder and chopped hazelnuts.",
+"available": 20,
+"category": {
+"categoryName": "Italian sweet",
+"categoryImage": "https://example.com/images/italiansweets"
+}
+},
+
+{
+"name": "Schiacciata alla Fiorentina",
+"photoPath": "https://en.julskitchen.com/wp-content/uploads/sites/2/2013/02/senza-titolo-001-5.jpg",
+"price": 6.99,
+"description": "A traditional Florentine cake made with sugar, eggs, and flour, flavored with orange zest and dusted with powdered sugar.",
+"available": 20,
+"category": {
+"categoryName": "Italian sweet",
+"categoryImage": "https://example.com/images/italiansweets"
+}
+},
+
+{
+"name": "Cassata",
+"photoPath": "https://myfoodstory.com/wp-content/uploads/2020/11/Classic-Cassata-Upgraded-4.jpg",
+"price": 12.99,
+"description": "A Sicilian cake made with sponge cake, sweet ricotta cheese, candied fruit, and marzipan, decorated with colorful icing and fruit.",
+"available": 20,
+"category": {
+"categoryName": "Italian sweet",
+"categoryImage": "https://example.com/images/italiansweets"
+}
+},
+
+{
+  "name": "Sesame Balls",
+  "photoPath": "https://bakeroise.com/wp-content/uploads/2021/07/sesameball-2.jpg",
+  "price": 3.99,
+  "description": "A traditional Chinese dessert made from glutinous rice flour and filled with sweetened red bean paste, then rolled in sesame seeds and deep-fried to create a crispy outer layer.",
+  "available": 20,
+  "category": {
+    "categoryName": "Chinese sweet",
+    "categoryImage": "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa3e8a1f5-0c38-435d-ad6e-b7eae322b76b_3024x4032.jpeg"
+  }
+},
+
+{
+  "name": "Mooncake",
+  "photoPath": "https://www.cooking-therapy.com/wp-content/uploads/2022/08/Mooncake-Recipe-14.jpg",
+  "price": 5.99,
+  "description": "A round Chinese pastry with a thin crust and a filling of lotus seed paste, surrounded by a salty egg yolk, traditionally eaten during the Mid-Autumn Festival.",
+  "available": 20,
+  "category": {
+    "categoryName": "Chinese sweet",
+    "categoryImage": "https://example.com/images/chinese-sweets"
+  }
+},
+
+
+{
+  "name": "Red Bean Paste Cake",
+  "photoPath": "https://www.chinasichuanfood.com/wp-content/uploads/2017/01/sticky-rice-cake-with-red-bean-paste-pan-fried-version-2-copy.jpg",
+  "price": 4.99,
+  "description": "A sweet Chinese cake made from a blend of red bean paste, flour, sugar, and oil, and then baked to create a fluffy and moist texture.",
+  "available": 20,
+  "category": {
+    "categoryName": "Chinese sweet",
+    "categoryImage": "https://example.com/images/chinese-sweets"
+  }
+},
+
+{
+  "name": "Tanghulu",
+  "photoPath": "https://simplyhomecooked.com/wp-content/uploads/2022/03/Strawberry-tanghulu-2.jpg",
+  "price": 2.99,
+  "description": "A popular Chinese street food consisting of skewered fruits, typically strawberries or hawthorn berries, coated with a hard sugar glaze.",
+  "available": 20,
+  "category": {
+    "categoryName": "Chinese sweet",
+    "categoryImage": "https://example.com/images/chinese-sweets"
+  }
+},
+
+
+{
+  "name": "Fried Milk",
+  "photoPath": "https://www.chinasichuanfood.com/wp-content/uploads/2018/06/fried-milk_-2.jpg",
+  "price": 6.99,
+  "description": "A Chinese dessert made by frying a thick milk custard mixture until crispy on the outside and creamy on the inside, often served with a drizzle of honey or syrup.",
+  "available": 20,
+  "category": {
+    "categoryName": "Chinese sweet",
+    "categoryImage": "https://example.com/images/chinese-sweets"
+  }
+},
+
+{
+  "name": "Osmanthus Cake",
+  "photoPath": "https://thewoksoflife.com/wp-content/uploads/2020/06/osmanthus-cake-16.jpg",
+  "price": 3.99,
+  "description": "A Chinese cake made with rice flour and osmanthus flowers, typically steamed and served as a sweet and fragrant dessert.",
+  "available": 20,
+  "category": {
+    "categoryName": "Chinese sweet",
+    "categoryImage": "https://example.com/images/chinese-sweets"
+  }
+},
+
+
+{
+  "name": "Chinese Egg Tart",
+  "photoPath": "https://omnivorescookbook.com/wp-content/uploads/2021/04/200918_Hong-Kong-Egg-Tart_2.jpg",
+  "price": 4.99,
+  "description": "A sweet pastry consisting of an egg custard filling in a flaky pastry shell, commonly found in Chinese bakeries and dim sum restaurants.",
+  "available": 20,
+  "category": {
+    "categoryName": "Chinese sweet",
+    "categoryImage": "https://example.com/images/chinese-sweets"
+  }
+},
+
+
+{
+  "name": "Dragon Beard Candy",
+  "photoPath": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Ovomaltine_dragon%27s_beard_candy.jpg",
+  "price": 7.99,
+  "description": "A traditional Chinese candy made by pulling sugar strands into thin threads and wrapping them around a filling of peanuts or sesame seeds.",
+  "available": 20,
+  "category": {
+    "categoryName": "Chinese sweet",
+    "categoryImage": "https://example.com/images/chinese-sweets"
+  }
+},
+
+{
+  "name": "Sweet Osmanthus Cake",
+  "photoPath": "https://thewoksoflife.com/wp-content/uploads/2020/06/osmanthus-cake-14.jpg",
+  "price": 3.99,
+  "description": "A Chinese dessert made from glutinous rice flour and sweet osmanthus, steamed until soft and chewy, and often served with a sweet syrup or honey.",
+  "available": 20,
+  "category": {
+    "categoryName": "Chinese sweet",
+    "categoryImage": "https://example.com/images/chinese-sweets"
+  }
+},
+
+{
+  "name": "Almond Cookies",
+  "photoPath": "http://floursandfrostings.com/wp-content/uploads/2021/09/20210904_003223-688x1024.jpg",
+  "price": 4.99,
+  "description": "A Chinese cookie made from flour, sugar, butter, and ground almonds, often served during Chinese New Year as a symbol of good luck and prosperity.",
+  "available": 20,
+  "category": {
+    "categoryName": "Chinese sweet",
+    "categoryImage": "https://example.com/images/chinese-sweets"
+  }
+},
+
+
+
+{
+  "name": "Lebkuchen",
+  "photoPath": "https://www.internationaldessertsblog.com/wp-content/uploads/2020/12/German-Lebkuchen-Cookies-Final-2.jpg",
+  "price": 5.99,
+  "description": "A traditional German gingerbread cookie made with honey, spices, and nuts. Often decorated with icing and served during Christmas time.",
+  "available": 20,
+  "category": {
+    "categoryName": "German Sweet",
+    "categoryImage": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Bunter_Teller_%2827_St%C3%BCcke%29.jpg"
+  }
+},
+{
+  "name": "Stollen",
+  "photoPath": "https://www.baked-theblog.com/wp-content/uploads/2020/11/Marzipan-Stollen-5.jpg",
+  "price": 9.99,
+  "description": "A sweet, fruit-filled bread made with nuts, raisins, and candied fruit. Often dusted with powdered sugar and served during the Christmas season.",
+  "available": 20,
+  "category": {
+    "categoryName": "German Sweet",
+    "categoryImage": "https://example.com/images/german-sweets"
+  }
+},
+{
+  "name": "Marzipan",
+  "photoPath": "https://i0.wp.com/polkapuffs.in/wp-content/uploads/2018/12/no-cook-eggfree-marzipan-recipe-final-2.jpeg",
+  "price": 7.99,
+  "description": "A sweet almond paste often used in candies and baked goods. A popular German treat often shaped into fruits or other designs and decorated with icing.",
+  "available": 20,
+  "category": {
+    "categoryName": "German Sweet",
+    "categoryImage": "https://example.com/images/german-sweets"
+  }
+},
+{
+  "name": "Apfelstrudel",
+  "photoPath": "https://www.curiouscuisiniere.com/wp-content/uploads/2018/09/German-Apfelstrudel-Apple-Strudel-7163-1.2.jpg",
+  "price": 8.99,
+  "description": "A classic German pastry made with thin layers of dough, filled with spiced apples, raisins, and breadcrumbs. Often served with whipped cream or vanilla ice cream.",
+  "available": 20,
+  "category": {
+    "categoryName": "German Sweet",
+    "categoryImage": "https://example.com/images/german-sweets"
+  }
+},
+{
+  "name": "Käsekuchen",
+  "photoPath": "https://www.simply-yummy.de/files/styles/tec_frontend_large/public/images/der-beste-kaesekuchen-der-welt.jpg",
+  "price": 11.99,
+  "description": "A German-style cheesecake made with a shortcrust pastry base and a filling of quark cheese, eggs, and sugar. Often served with fruit or whipped cream.",
+  "available": 20,
+  "category": {
+    "categoryName": "German Sweet",
+    "categoryImage": "https://example.com/images/german-sweets"
+  }
+},
+
+
+{
+  "name": "Windbeutel",
+  "photoPath": "https://redcurrantbakery.com/wp-content/uploads/2022/07/20170704-IMG_4894-scaled.jpg",
+  "price": 6.99,
+  "description": "A German cream puff made with choux pastry and filled with whipped cream, custard, or ice cream. Often topped with chocolate or fruit.",
+  "available": 20,
+  "category": {
+    "categoryName": "German Sweet",
+    "categoryImage": "https://example.com/images/german-sweets"
+  }
+},
+
+{
+"name": "Zimtsterne",
+"photoPath": "https://daysofjay.com/wp-content/uploads/2020/12/German-Cinnamon-Star-Cookies-web-9-683x1024.jpg",
+"price": 9.99,
+"description": "A German cookie made with ground almonds and flavored with cinnamon. Often cut into star shapes and decorated with icing.",
+"available": 20,
+"category": {
+"categoryName": "German Sweet",
+"categoryImage": "https://example.com/images/german-sweets"
+}
+},
+
+{
+"name": "Erdbeerkuchen",
+"photoPath": "https://www.simply-yummy.de/files/styles/tec_frontend_large/public/images/recipes/erdbeerkuchen-mit-vanillepudding.jpg",
+"price": 16.99,
+"description": "A German cake made with a buttery shortcrust pastry and fresh strawberries. Often topped with whipped cream.",
+"available": 20,
+"category": {
+"categoryName": "German Sweet",
+"categoryImage": "https://example.com/images/german-sweets"
+}
+},
+
+{
+"name": "Schneeball",
+"photoPath": "https://diningoutwithhistory.files.wordpress.com/2014/05/p1200978.jpg?w=379&h=505",
+"price": 6.99,
+"description": "A German pastry made with shortcrust pastry and shaped into a ball. Often coated with powdered sugar or chocolate.",
+"available": 20,
+"category": {
+"categoryName": "German Sweet",
+"categoryImage": "https://example.com/images/german-sweets"
+}
+},
+
+{
+"name": "Käsekuchen",
+"photoPath": "https://www.simply-yummy.de/files/styles/tec_frontend_large/public/images/der-beste-kaesekuchen-der-welt.jpg",
+"price": 13.99,
+"description": "A German cheesecake made with quark or cream cheese, and flavored with lemon zest and vanilla. Often served with fruit compote on top.",
+"available": 20,
+"category": {
+"categoryName": "German Sweet",
+"categoryImage": "https://example.com/images/german-sweets"
+}
+},
+
+
+
+{
+"name": "Mango Sticky Rice",
+"photoPath": "https://www.cookwithmanali.com/wp-content/uploads/2021/06/Thai-Mango-Sticky-Rice.jpg",
+"price": 8.99,
+"description": "A Thai dessert made with glutinous rice cooked in coconut milk, served with fresh mango slices and a sweet syrup.",
+"available": 20,
+"category": {
+"categoryName": "Thai Sweet",
+"categoryImage": "https://insanelygoodrecipes.com/wp-content/uploads/2021/01/Thai-Desserts-1-683x1024.png"
+}
+},
+
+{
+"name": "Khanom Buang",
+"photoPath": "https://thumbs.dreamstime.com/b/khanom-buang-khanom-buang-known-as-thai-crepes-english-kanom-bueang-ancient-thai-snack-known-as-crispy-pancakes-218216965.jpg",
+"price": 5.99,
+"description": "A Thai dessert made with crispy crepes filled with sweet meringue and shredded coconut. Sometimes topped with sweet corn.",
+"available": 20,
+"category": {
+"categoryName": "Thai Sweet",
+"categoryImage": "https://example.com/images/thai-sweets"
+}
+},
+
+{
+"name": "Thong Yot",
+"photoPath": "https://thumbs.dreamstime.com/b/thai-dessert-local-name-foi-thong-thong-yip-med-kanoon-favorite-propitious-ceremony-53661422.jpg",
+"price": 9.99,
+"description": "A Thai dessert made with small, round droplets of sweet egg yolk cooked in sugar syrup. Often served in a bowl with coconut milk.",
+"available": 20,
+"category": {
+"categoryName": "Thai Sweet",
+"categoryImage": "https://example.com/images/thai-sweets"
+}
+},
+
+
+{
+"name": "Khao Niew Dum Sungkaya",
+"photoPath": "http://farm6.static.flickr.com/5240/5856562758_fbd1b0f709_o.jpg",
+"price": 7.99,
+"description": "A Thai dessert made with black sticky rice cooked in coconut milk, served with a sweet custard made from eggs and coconut milk.",
+"available": 20,
+"category": {
+"categoryName": "Thai Sweet",
+"categoryImage": "https://example.com/images/thai-sweets"
+}
+},
+
+
+{
+"name": "Tako",
+"photoPath": "https://thumbs.dreamstime.com/b/tako-coconut-milk-thai-dessert-198319904.jpg",
+"price": 6.99,
+"description": "A Thai dessert made with coconut cream and agar agar, served in small cups with sweet corn and mung bean toppings.",
+"available": 20,
+"category": {
+"categoryName": "Thai Sweet",
+"categoryImage": "https://example.com/images/thai-sweets"
+}
+},
+
+
+
+{
+"name": "Bua Loy",
+"photoPath": "https://previews.123rf.com/images/oumjeab/oumjeab1703/oumjeab170300030/74431427-thailand-dessert-bua-loy-and-coconut-milk-in-cup-on-wooden-table.jpg",
+"price": 8.99,
+"description": "A Thai dessert made with small, chewy balls of rice flour, served in sweet coconut milk and topped with shredded coconut.",
+"available": 20,
+"category": {
+"categoryName": "Thai Sweet",
+"categoryImage": "https://example.com/images/thai-sweets"
+}
+},
+
+{
+"name": "Kanom Krok",
+"photoPath": "https://rakskitchen.net/wp-content/uploads/2022/01/kanom-krok-recipe.jpg",
+"price": 6.99,
+"description": "A Thai dessert made with coconut milk and rice flour, cooked in a special pan to create small, fluffy cups filled with sweet custard.",
+"available": 20,
+"category": {
+"categoryName": "Thai Sweet",
+"categoryImage": "https://example.com/images/thai-sweets"
+}
+},
+
+{
+"name": "Sakoo Sai Moo",
+"photoPath": "https://img.freepik.com/premium-photo/transparent-balls-are-called-saku-sai-moo-steamed-tapioca-dumplings-ball-with-pork-filling_1339-157863.jpg?w=360",
+"price": 9.99,
+"description": "A Thai appetizer or dessert made with tapioca pearls filled with seasoned ground pork and peanuts. Served with a sweet chili sauce.",
+"available": 20,
+"category": {
+"categoryName": "Thai Sweet",
+"categoryImage": "https://example.com/images/thai-sweets"
+}
+},
+
+{
+"name": "Kluay Buat Chi",
+"photoPath": "https://thumbs.dreamstime.com/b/banana-coconut-milk-thai-dessert-kluay-buat-chi-black-background-222664353.jpg",
+"price": 7.99,
+"description": "A Thai dessert made with banana slices cooked in coconut milk and pandan leaves, served with a sweet syrup and topped with sesame seeds.",
+"available": 20,
+"category": {
+"categoryName": "Thai Sweet",
+"categoryImage": "https://example.com/images/thai-sweets"
+}
+},
+
+{
+"name": "Khanom Tan",
+"photoPath": "https://1.bp.blogspot.com/-PRZ_qWKsC20/Trlvn5wO8-I/AAAAAAAAGoQ/qLxwQgjruCI/s1600/Khanom%2BTan%2BOpen.jpg",
+"price": 5.99,
+"description": "A Thai dessert made with sticky rice flour and sugar, shaped into small cakes and topped with a sweet coconut milk sauce.",
+"available": 20,
+"category": {
+"categoryName": "Thai Sweet",
+"categoryImage": "https://example.com/images/thai-sweets"
+}
+},
+
+{
+    "name": "Umm Ali",
+    "photoPath": "https://4.bp.blogspot.com/-rblXpH5JEFg/VVoMx7cSv6I/AAAAAAAAL3o/14xGyjzUx3w/s1600/IMG_7469.JPG",
+    "price": 8.99,
+    "description": "A traditional Middle Eastern bread pudding made with phyllo dough, milk, and nuts.",
+    "available": 20,
+    "category": {
+        "categoryName": "Middle Eastern Sweets",
+        "categoryImage": "https://4.bp.blogspot.com/-rblXpH5JEFg/VVoMx7cSv6I/AAAAAAAAL3o/14xGyjzUx3w/s1600/IMG_7469.JPG"
+    }
+},
+{
+    "name": "Luqmat Al Qadi",
+    "photoPath": "http://farm9.staticflickr.com/8430/7739517544_622efd57ed_z.jpg",
+    "price": 7.99,
+    "description": "Deep-fried dough balls drizzled with sweet syrup and often flavored with rosewater or saffron.",
+    "available": 20,
+    "category": {
+        "categoryName": "Middle Eastern Sweets",
+        "categoryImage": "https://example.com/images/middle-eastern-sweets"
+    }
+},
+
+{
+    "name": "Khameer",
+    "photoPath": "https://wwwruchikrandhapco00f97.zapwp.com/q:i/r:1/wp:1/w:342/u:https://www.ruchikrandhap.com/wp-content/uploads/2018/10/Khobz-Al-Khameer-2.jpg",
+    "price": 9.99,
+    "description": "A sweet, fluffy bread made from yeast, sugar, and spices, often stuffed with dates or nuts.",
+    "available": 20,
+    "category": {
+        "categoryName": "Middle Eastern Sweets",
+        "categoryImage": "https://example.com/images/middle-eastern-sweets"
+    }
+},
+
+  {
+            "name": "Baklava",
+            "photoPath": "https://www.fifteenspatulas.com/wp-content/uploads/2021/07/Baklava-1.jpg",
+            "price": 8.99,
+            "description": "A rich, sweet pastry made of layers of phyllo dough filled with chopped nuts and sweetened with syrup or honey.",
+            "available": 20,
+            "category": {
+                "categoryName": "Middle Eastern Sweets",
+                "categoryImage": "https://example.com/images/middle-eastern-sweets"
+            }
+        },
+        {
+            "name": "Basbousa",
+            "photoPath": "https://cleobuttera.com/wp-content/uploads/2018/05/stacked-basbousa.jpg",
+            "price": 5.99,
+            "description": "A sweet, dense cake made from semolina, coconut, and sweet syrup.",
+            "available": 20,
+            "category": {
+                "categoryName": "Middle Eastern Sweets",
+                "categoryImage": "https://example.com/images/middle-eastern-sweets"
+            }
+        },
+
+{
+            "name": "Qatayef",
+            "photoPath": "https://cleobuttera.com/wp-content/uploads/2016/06/katayef-main-full.jpg",
+            "price": 7.99,
+            "description": "A crescent-shaped pastry filled with sweet cheese or nuts and drizzled with syrup or honey.",
+            "available": 20,
+            "category": {
+                "categoryName": "Middle Eastern Sweets",
+                "categoryImage": "https://example.com/images/middle-eastern-sweets"
+            }
+        },
+
+{
+    "name": "Mehalabiya",
+    "photoPath": "https://cleobuttera.com/wp-content/uploads/2018/02/mehallab-full-mood.jpg",
+    "price": 4.99,
+    "description": "A milk pudding flavored with rosewater or orange blossom water, topped with pistachios or almonds.",
+    "available": 20,
+    "category": {
+        "categoryName": "Middle Eastern Sweets",
+        "categoryImage": "https://example.com/images/middle-eastern-sweets"
+    }
+},
+
+
+
+{
+    "name": "Qatayef",
+    "photoPath": "https://littlesunnykitchen.com/wp-content/uploads/2014/07/Atayef-2.jpg",
+    "price": 9.99,
+    "description": "A sweet, stuffed pancake made from semolina or flour and filled with cream, cheese, or nuts, often served during Ramadan.",
+    "available": 20,
+    "category": {
+        "categoryName": "Middle Eastern Sweets",
+        "categoryImage": "https://example.com/images/middle-eastern-sweets"
+    }
+},
+{
+    "name": "Basbousa",
+    "photoPath": "https://cleobuttera.com/wp-content/uploads/2018/05/basbousa-sides.jpg",
+    "price": 6.99,
+    "description": "A sweet cake made from semolina and soaked in syrup, often flavored with rosewater or orange blossom water and topped with almonds or coconut.",
+    "available": 20,
+    "category": {
+        "categoryName": "Middle Eastern Sweets",
+        "categoryImage": "https://example.com/images/middle-eastern-sweets"
+    }
+},
+
+{
+    "name": "Kunafa",
+    "photoPath": "https://besthomemade.recipes/wp-content/uploads/2022/05/traditional-crispy-kunafa-dessert-recipe.jpg",
+    "price": 14.99,
+    "description": "A sweet, cheese-filled pastry made from shredded phyllo dough and soaked in syrup, often flavored with rosewater or orange blossom water.",
+    "available": 20,
+    "category": {
+        "categoryName": "Middle Eastern Sweets",
+        "categoryImage": "https://example.com/images/middle-eastern-sweets"
+    }
+},
+
+{
+    "name": "Balaleet",
+    "photoPath": "https://everylittlecrumb.com/wp-content/uploads/4%D8%A8%D9%84%D8%A7%D9%84%D9%8A%D8%B7-683x1024.jpg",
+    "price": 6.99,
+    "description": "A sweet vermicelli pudding made from vermicelli noodles, sugar, and cardamom, often topped with saffron and nuts.",
+    "available": 20,
+    "category": {
+        "categoryName": "Emirati Sweets",
+        "categoryImage": "https://everylittlecrumb.com/wp-content/uploads/4%D8%A8%D9%84%D8%A7%D9%84%D9%8A%D8%B7-683x1024.jpg"
+    }
+},
+{
+    "name": "Aseeda",
+    "photoPath": "https://www.thebigsweettooth.com/wp-content/uploads/2017/11/28.-Aseeda-Bobbar3.jpg",
+    "price": 8.99,
+    "description": "A sweet porridge made from flour, dates, and butter, often flavored with cardamom and saffron.",
+    "available": 20,
+    "category": {
+        "categoryName": "Emirati Sweets",
+        "categoryImage": "https://example.com/images/emirati-sweets"
+    }
+},
+{
+    "name": "Madhbi",
+    "photoPath": "https://thumbs.dreamstime.com/z/rice-mandi-chicken-salad-chili-as-condiment-nasi-mandi-arabic-cuisine-healthty-food-as-has-salad-as-condiment-259950583.jpg",
+    "price": 10.99,
+    "description": "A sweet and savory grilled meat dish marinated in honey, spices, and yogurt.",
+    "available": 20,
+    "category": {
+        "categoryName": "Emirati Sweets",
+        "categoryImage": "https://example.com/images/emirati-sweets"
+    }
+},
+{
+    "name": "Gaimat",
+    "photoPath": "https://www.oogio.net/wp-content/uploads//2018/11/lokomades3-s.jpg",
+    "price": 5.99,
+    "description": "Small, round balls of dough deep-fried and drizzled with sweet syrup or honey, often flavored with cardamom or saffron.",
+    "available": 20,
+    "category": {
+        "categoryName": "Emirati Sweets",
+        "categoryImage": "https://example.com/images/emirati-sweets"
+    }
+},
+
+{
+    "name": "Harees",
+    "photoPath": "https://www.savoryandsweetfood.com/wp-content/uploads/2016/11/IMG_2486.JPG-4.jpeg",
+    "price": 7.99,
+    "description": "A sweet and savory porridge made from wheat, meat, and spices.",
+    "available": 20,
+    "category": {
+        "categoryName": "Emirati Sweets",
+        "categoryImage": "https://example.com/images/emirati-sweets"
+    }
+},
+{
+    "name": "Khabeesa",
+    "photoPath": "https://1.bp.blogspot.com/-vivBklQU3tY/WbffJiJLVsI/AAAAAAAAACo/amIRozlhpBYw08tGnDJg8ulZviT4iu6uwCLcBGAs/s1600/Khabees-002.jpg",
+    "price": 5.99,
+    "description": "A sweet porridge made from wheat, dates, and butter.",
+    "available": 20,
+    "category": {
+        "categoryName": "Emirati Sweets",
+        "categoryImage": "https://example.com/images/emirati-sweets"
+    }
+},
+{
+    "name": "Halwa",
+    "photoPath": "https://sinfullyspicy.com/wp-content/uploads/2022/01/5-3.jpg",
+    "price": 6.99,
+    "description": "A sweet, dense confection made from sugar, butter, and flour, often flavored with cardamom or saffron.",
+    "available": 20,
+    "category": {
+        "categoryName": "Emirati Sweets",
+        "categoryImage": "https://example.com/images/emirati-sweets"
+    }
+},
+
+ {
+      "name": "Luqaimat",
+       "photoPath": "https://sourandsweets.com/wp-content/uploads/2020/12/luqaimat-recipe-1-683x1024.jpg",
+       "price": 6.99,
+            "description": "A sweet, sticky dumpling made from flour, sugar, and yeast, often served with date syrup and sesame seeds.",
+            "available": 20,
+            "category": {
+                "categoryName": "Emirati Sweets",
+                "categoryImage": "https://example.com/images/emirati-sweets"
+            }
+        },
+
+{
+    "name": "Chabab",
+    "photoPath": "https://b.zmtcdn.com/data/reviews_photos/ad3/0e3709e10d09c4fa05af1eb2e77d3ad3_1470840484.jpg",
+    "price": 7.99,
+    "description": "A sweet, crepe-like pancake made from flour, milk, and eggs, often served with date syrup or honey.",
+    "available": 20,
+    "category": {
+        "categoryName": "Emirati Sweets",
+        "categoryImage": "https://example.com/images/emirati-sweets"
+    }
+},
+{
+    "name": "Lgeimat",
+    "photoPath": "https://b.zmtcdn.com/data/pictures/chains/9/18283289/ea1f12f735eaca8f815452e6bb0e6e26.jpg",
+    "price": 6.99,
+    "description": "A sweet, deep-fried dough ball drizzled with date syrup, often served during Ramadan.",
+    "available": 15,
+    "category": {
+        "categoryName": "Emirati Sweets",
+        "categoryImage": "https://example.com/images/emirati-sweets"
+    }
+}
+       
+
+]

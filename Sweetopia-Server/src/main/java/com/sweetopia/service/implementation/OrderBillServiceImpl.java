@@ -5,13 +5,13 @@ import java.util.List;
 import java.util.Optional;
 
 import com.sweetopia.dto.ProductDTO;
-import com.sweetopia.entity.Customer;
+import com.sweetopia.entity.User;
 import com.sweetopia.entity.Order;
-import com.sweetopia.service.CustomerService;
+import com.sweetopia.exception.CustomerNotFoundException;
+import com.sweetopia.exception.ProductException;
+import com.sweetopia.service.UserService;
 import com.sweetopia.service.OrderService;
-import com.sweetopia.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.sweetopia.entity.OrderBill;
@@ -26,14 +26,15 @@ public class OrderBillServiceImpl implements OrderBillService {
 	private OrderBillRepository orderbillrepository;
 
 	@Autowired
-	private CustomerService customerService;
+	private UserService userService;
 	@Autowired
 	private OrderService orderService;
 
 	@Override
-	public OrderBill addOrderBill(Long orderId) throws OrderBillNotFoundException, OrderNotFoundException {
+	public OrderBill addOrderBill(Long customerId,Long orderId) throws OrderBillNotFoundException, OrderNotFoundException {
 		// TODO Auto-generated method stub
 		Order order=orderService.showAllSweetOrderById(orderId);
+		if(order.getUser().getId()!=customerId)throw new OrderBillNotFoundException("Order does not belong to customer with id : "+customerId);
 		if(order.getOrderBill()!=null)throw new OrderBillNotFoundException("Bill already exists for the given order");
 		OrderBill orderBill = new OrderBill();
 		for(ProductDTO product:order.getGroupedProducts()){
@@ -59,7 +60,7 @@ public class OrderBillServiceImpl implements OrderBillService {
 	}
 
 	@Override
-	public OrderBill cancelOrderBill(Long orderBillId) throws OrderBillNotFoundException, OrderNotFoundException {
+	public OrderBill cancelOrderBill(Long orderBillId) throws OrderBillNotFoundException, OrderNotFoundException, ProductException {
 		// TODO Auto-generated method stub
 		Optional<OrderBill> orderbill1 = orderbillrepository.findById(orderBillId);
 
@@ -67,7 +68,7 @@ public class OrderBillServiceImpl implements OrderBillService {
 			OrderBill ordbill=orderbill1.get();
 			Order order=orderService.showAllSweetOrderById(ordbill.getSweetOrder().getOrderId());
 			order.setOrderBill(null);
-			orderService.updateSweetOrder(order.getCustomer().getId(),order);
+			orderService.updateSweetOrder(order.getUser().getId(),order);
 			ordbill.setSweetOrder(null);
 			orderbillrepository.deleteById(orderBillId);
 			return ordbill;
@@ -90,10 +91,13 @@ public class OrderBillServiceImpl implements OrderBillService {
 	}
 
 	@Override
-	public OrderBill showAllOrderBillsById(Long orderBillId) throws OrderBillNotFoundException {
+	public OrderBill showAllOrderBillsById(Long customerId,Long orderBillId) throws OrderBillNotFoundException {
 		// TODO Auto-generated method stub
+
 		Optional<OrderBill> orderbill1 = orderbillrepository.findById(orderBillId);
+
 		if(orderbill1.isPresent()) {
+			if(customerId!=null && orderbill1.get().getSweetOrder().getUser().getId()!=customerId)throw new OrderBillNotFoundException("Order bill does not belong to customer with id : "+customerId);
 			return orderbill1.get();
 		}else {
 			throw new OrderBillNotFoundException("Order bill with id " + orderBillId + " does not exist");
@@ -105,9 +109,9 @@ public class OrderBillServiceImpl implements OrderBillService {
 
 	@Override
 	public List<OrderBill> showAllBillOfCustomer(Long customerId) throws OrderBillNotFoundException {
-		Customer customer=customerService.getCustomerById(customerId);
+		User user = userService.getCustomerById(customerId);
 		List<OrderBill> list = new ArrayList<>();
-		for(Order order:customer.getOrders()){
+		for(Order order: user.getOrders()){
 			if(order.getOrderBill()!=null){
 				list.add(order.getOrderBill());
 			}

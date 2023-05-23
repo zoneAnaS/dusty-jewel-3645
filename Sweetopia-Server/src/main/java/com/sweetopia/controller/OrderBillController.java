@@ -2,7 +2,11 @@ package com.sweetopia.controller;
 
 import java.util.List;
 
+import com.sweetopia.entity.Role;
+import com.sweetopia.entity.User;
 import com.sweetopia.exception.OrderNotFoundException;
+import com.sweetopia.exception.SessionsException;
+import com.sweetopia.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,42 +35,49 @@ public class OrderBillController {
 	
 	@Autowired
 	private OrderBillService orderbillservice;
+	@Autowired
+	private SessionService sessionService;
 	
-	@PostMapping("/{orderId}/orderbill")
-	public ResponseEntity<OrderBill> addOrderBill(@PathVariable Long orderId) throws OrderBillNotFoundException, OrderNotFoundException {
-		
-		OrderBill ordbill = orderbillservice.addOrderBill(orderId);
+	@PostMapping("/add/{orderId}/{uuid}")
+	public ResponseEntity<OrderBill> addOrderBill(@PathVariable String uuid,@PathVariable Long orderId) throws OrderBillNotFoundException, OrderNotFoundException, SessionsException {
+		User user= sessionService.getUserByUUID(uuid);
+		OrderBill ordbill = orderbillservice.addOrderBill(user.getId(),orderId);
 		return new ResponseEntity<>(ordbill, HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/orderbills")
-	public ResponseEntity<OrderBill> updateOrderBill(@Valid @RequestBody OrderBill orderbill) throws OrderBillNotFoundException{
-		OrderBill ordbill = orderbillservice.updateOrderBill(orderbill);
-		return new ResponseEntity<>(ordbill, HttpStatus.OK);
-	}
+//	@PutMapping("/orderbills")
+//	public ResponseEntity<OrderBill> updateOrderBill(@Valid @RequestBody OrderBill orderbill) throws OrderBillNotFoundException{
+//		OrderBill ordbill = orderbillservice.updateOrderBill(orderbill);
+//		return new ResponseEntity<>(ordbill, HttpStatus.OK);
+//	}
 	
-	@DeleteMapping("/orderbills/{orderBillId}")
-	public ResponseEntity<OrderBill> cancelOrderBill(@PathVariable Long orderBillId) throws OrderBillNotFoundException, OrderNotFoundException {
-		OrderBill ordbill = orderbillservice.cancelOrderBill(orderBillId);
-		return new ResponseEntity<>(ordbill, HttpStatus.OK);
-	}
+//	@DeleteMapping("/orderbills/{orderBillId}")
+//	public ResponseEntity<OrderBill> cancelOrderBill(@PathVariable Long orderBillId) throws OrderBillNotFoundException, OrderNotFoundException {
+//		OrderBill ordbill = orderbillservice.cancelOrderBill(orderBillId);
+//		return new ResponseEntity<>(ordbill, HttpStatus.OK);
+//	}
 	
-	@GetMapping("/orderbills")
-	public ResponseEntity<List<OrderBill>> showAllOrderBills() throws OrderBillNotFoundException{
+	@GetMapping("/all/{uuid}")
+	public ResponseEntity<List<OrderBill>> showAllOrderBills(@PathVariable String uuid) throws OrderBillNotFoundException, SessionsException {
+		if(!sessionService.isAdmin(uuid))throw new SessionsException("Only admin can access this");
 		List<OrderBill> orderbill = orderbillservice.showAllOrderBills();
 		return new ResponseEntity<>(orderbill, HttpStatus.OK);
 		
 	}
 	
-	@GetMapping("/orderbills/{orderBillId}")
-	public ResponseEntity<OrderBill> showAllOrderBillsById(@PathVariable Long orderBillId) throws OrderBillNotFoundException {
-		OrderBill ordbill = orderbillservice.showAllOrderBillsById(orderBillId);
+	@GetMapping("/orderbills/{orderBillId}/{uuid}")
+	public ResponseEntity<OrderBill> showAllOrderBillsById(@PathVariable String uuid,@PathVariable Long orderBillId) throws OrderBillNotFoundException, SessionsException {
+		User user=sessionService.getUserByUUID(uuid);
+		Long customerId=null;
+		if(user.getRole()== Role.Customer)customerId=user.getId();
+		OrderBill ordbill = orderbillservice.showAllOrderBillsById(customerId,orderBillId);
 		return new ResponseEntity<>(ordbill, HttpStatus.OK);
 	}
 	
-	@GetMapping("/orderbills/{customerId}")
-	public ResponseEntity<List<OrderBill>> showAllBillOfCustomer(@PathVariable Long customerId) throws OrderBillNotFoundException{
-		List<OrderBill> ordbill = orderbillservice.showAllBillOfCustomer(customerId);
+	@GetMapping("/orderbills/{uuid}")
+	public ResponseEntity<List<OrderBill>> showAllBillOfCustomer(@PathVariable String uuid) throws OrderBillNotFoundException, SessionsException {
+		User user=sessionService.getUserByUUID(uuid);
+		List<OrderBill> ordbill = orderbillservice.showAllBillOfCustomer(user.getId());
 		return new ResponseEntity<>(ordbill, HttpStatus.OK);
 	}
 

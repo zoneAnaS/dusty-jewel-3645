@@ -1,7 +1,9 @@
 package com.sweetopia.service.implementation;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 import com.sweetopia.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +42,6 @@ public class CategoryServiceImpl implements CategoryService{
 
 	@Override
 	public Category updateCategory(Category c) throws CategoryException {
-		System.out.println(c);
 		Category category=null;
 		if(c.getCategoryId() != null) {
 			Optional<Category> cat = categoryRepository.findById(c.getCategoryId());
@@ -53,9 +54,8 @@ public class CategoryServiceImpl implements CategoryService{
 		}else{
 			throw new CategoryException("category id cannot be null");
 		}
-		category.setCategoryName(c.getCategoryName());
-		category.setCategoryImage(c.getCategoryImage());
-
+		if(c.getCategoryName()!=null)category.setCategoryName(c.getCategoryName());
+		if(c.getCategoryImage()!=null)category.setCategoryImage(c.getCategoryImage());
 		 return categoryRepository.save(category);
 		
 	}

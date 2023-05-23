@@ -7,6 +7,8 @@ import java.util.Optional;
 import com.sweetopia.dto.ProductDTO;
 import com.sweetopia.entity.User;
 import com.sweetopia.entity.Order;
+import com.sweetopia.exception.CustomerNotFoundException;
+import com.sweetopia.exception.ProductException;
 import com.sweetopia.service.UserService;
 import com.sweetopia.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +31,10 @@ public class OrderBillServiceImpl implements OrderBillService {
 	private OrderService orderService;
 
 	@Override
-	public OrderBill addOrderBill(Long orderId) throws OrderBillNotFoundException, OrderNotFoundException {
+	public OrderBill addOrderBill(Long customerId,Long orderId) throws OrderBillNotFoundException, OrderNotFoundException {
 		// TODO Auto-generated method stub
 		Order order=orderService.showAllSweetOrderById(orderId);
+		if(order.getUser().getId()!=customerId)throw new OrderBillNotFoundException("Order does not belong to customer with id : "+customerId);
 		if(order.getOrderBill()!=null)throw new OrderBillNotFoundException("Bill already exists for the given order");
 		OrderBill orderBill = new OrderBill();
 		for(ProductDTO product:order.getGroupedProducts()){
@@ -57,7 +60,7 @@ public class OrderBillServiceImpl implements OrderBillService {
 	}
 
 	@Override
-	public OrderBill cancelOrderBill(Long orderBillId) throws OrderBillNotFoundException, OrderNotFoundException {
+	public OrderBill cancelOrderBill(Long orderBillId) throws OrderBillNotFoundException, OrderNotFoundException, ProductException {
 		// TODO Auto-generated method stub
 		Optional<OrderBill> orderbill1 = orderbillrepository.findById(orderBillId);
 
@@ -88,10 +91,13 @@ public class OrderBillServiceImpl implements OrderBillService {
 	}
 
 	@Override
-	public OrderBill showAllOrderBillsById(Long orderBillId) throws OrderBillNotFoundException {
+	public OrderBill showAllOrderBillsById(Long customerId,Long orderBillId) throws OrderBillNotFoundException {
 		// TODO Auto-generated method stub
+
 		Optional<OrderBill> orderbill1 = orderbillrepository.findById(orderBillId);
+
 		if(orderbill1.isPresent()) {
+			if(customerId!=null && orderbill1.get().getSweetOrder().getUser().getId()!=customerId)throw new OrderBillNotFoundException("Order bill does not belong to customer with id : "+customerId);
 			return orderbill1.get();
 		}else {
 			throw new OrderBillNotFoundException("Order bill with id " + orderBillId + " does not exist");

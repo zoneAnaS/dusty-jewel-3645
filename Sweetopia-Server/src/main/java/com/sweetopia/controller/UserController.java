@@ -24,14 +24,14 @@ import com.sweetopia.service.UserService;
 @RequestMapping("/sweetopia/customers")
 @CrossOrigin(origins = "http://127.0.0.1:5500")
 public class UserController {
-
+	//done
 	
 	@Autowired
 	private UserService userService;
 	@Autowired
 	private SessionService sessionService;
 	
-	@PostMapping
+	@PostMapping("/register")
 	public ResponseEntity<User> addCustomer(@RequestBody CustomerDTO customerDTO){
 		User user =new User();
 		user.setUserName(customerDTO.getUserName());
@@ -46,7 +46,7 @@ public class UserController {
 
 	}
 	
-	@PutMapping("/{uuid}")
+	@PutMapping("/update/{uuid}")
 	public ResponseEntity<User> updateCustomer(@PathVariable("uuid")String uuid, @RequestBody User user) throws Exception {
 			sessionService.isSessionValid(uuid);
 			User user1=sessionService.getUserByUUID(uuid);

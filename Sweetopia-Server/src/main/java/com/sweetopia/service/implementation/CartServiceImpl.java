@@ -1,5 +1,6 @@
 package com.sweetopia.service.implementation;
 
+import java.awt.desktop.SystemSleepEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,19 +43,21 @@ public class CartServiceImpl implements CartService{
 			cart1.setProductCount(0);
 			cart1.setGrandTotal(0.0);
 			CartRepository.save(cart1);
-
-			for(ProductDTO productDTO:cart.getListProduct()){
-				try{
-					addProductToCart(cart.getUser().getId(),productDTO.getProductId(), productDTO.getQuantity());
-				}catch(ProductException ex){
-
-				}
-			}
 			for(ProductDTO productDTO:list){
 				Product product = productService.getProductById(productDTO.getProductId());
 				product.setAvailable(product.getAvailable()+productDTO.getQuantity());
 				productService.updateProduct(product);
 			}
+			System.out.println(cart.getListProduct());
+			for(ProductDTO productDTO:cart.getListProduct()){
+				try{
+					if(productDTO.getQuantity()>0)addProductToCart(cart1.getUser().getId(),productDTO.getProductId(), productDTO.getQuantity());
+
+				}catch(ProductException ex){
+
+				}
+			}
+
 		}else{
 			throw new CartNotFoundException("Cart id cannot be null");
 		}

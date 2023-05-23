@@ -3,6 +3,8 @@ package com.sweetopia.controller;
 import java.util.List;
 
 import com.sweetopia.entity.Product;
+import com.sweetopia.exception.SessionsException;
+import com.sweetopia.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,29 +27,35 @@ import com.sweetopia.service.CategoryService;
 @RequestMapping("/sweetopia/categories")
 @CrossOrigin(origins = "http://127.0.0.1:5500")
 public class CategoryController {
+    //done
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private SessionService sessionService;
 
-    @PostMapping
-    public ResponseEntity<Category> addCategory(@RequestBody Category category)throws CategoryException {
+    @PostMapping("/add/{uuid}")
+    public ResponseEntity<Category> addCategory(@PathVariable String uuid,@RequestBody Category category) throws CategoryException, SessionsException {
+        if(!sessionService.isAdmin(uuid))throw new SessionsException("Customer cannot add category");
         Category addedCategory = categoryService.addCategory(category);
         return ResponseEntity.status(HttpStatus.CREATED).body(addedCategory);
     }
 
-    @PutMapping("/{categoryId}")
-    public ResponseEntity<Category> updateCategory(@PathVariable Long categoryId, @RequestBody Category category) throws CategoryException {
+    @PutMapping("/update/{categoryId}/{uuid}")
+    public ResponseEntity<Category> updateCategory(@PathVariable String uuid,@PathVariable Long categoryId, @RequestBody Category category) throws CategoryException, SessionsException {
+        if(!sessionService.isAdmin(uuid))throw new SessionsException("Customer cannot update category");
         category.setCategoryId(categoryId);
         Category updatedCategory = categoryService.updateCategory(category);
         return ResponseEntity.ok(updatedCategory);
     }
 
-    @DeleteMapping("/{categoryId}")
-    public ResponseEntity<Category> cancelCategory(@PathVariable Long categoryId) throws CategoryException{
+    @DeleteMapping("/{categoryId}/{uuid}")
+    public ResponseEntity<Category> cancelCategory(@PathVariable String uuid,@PathVariable Long categoryId) throws CategoryException, SessionsException {
+        if(!sessionService.isAdmin(uuid))throw new SessionsException("Customer cannot delete category");
         Category cancelledCategory = categoryService.cancelCategory(categoryId);
         return ResponseEntity.ok(cancelledCategory);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Category>> showAllCategory()  throws CategoryException{
         List<Category> categories = categoryService.showAllCategory();
         return ResponseEntity.ok(categories);

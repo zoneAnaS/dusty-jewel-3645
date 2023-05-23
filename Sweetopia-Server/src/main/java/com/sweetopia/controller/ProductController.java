@@ -2,8 +2,10 @@ package com.sweetopia.controller;
 
 import com.sweetopia.entity.Product;
 import com.sweetopia.exception.ProductException;
+import com.sweetopia.exception.SessionsException;
 import com.sweetopia.repository.ProductRepository;
 import com.sweetopia.service.ProductService;
+import com.sweetopia.service.SessionService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -20,22 +22,32 @@ import java.util.List;
 @RequestMapping("/sweetopia")
 @CrossOrigin(origins = "http://127.0.0.1:5500")
 public class ProductController {
+    //done
 
     @Autowired
     private ProductService productService;
 
-    @PostMapping("/products")
-    public ResponseEntity<Product> addProduct(@Valid @RequestBody Product product) throws ProductException {
+    @Autowired
+    private SessionService sessionService;
+
+    @PostMapping("/products/add/{uuid}")
+    public ResponseEntity<Product> addProduct(@PathVariable String uuid,@Valid @RequestBody Product product) throws ProductException, SessionsException {
+        sessionService.isSessionValid(uuid);
+        if(!sessionService.isAdmin(uuid))throw new SessionsException("Customer cannot add products");
         Product p1=productService.addProduct(product);
         return new ResponseEntity<>(p1, HttpStatus.ACCEPTED);
     }
-    @PostMapping("/products/all")
-    public ResponseEntity<List<Product>> addProducts(@Valid @RequestBody List<Product> product) throws ProductException {
+    @PostMapping("/products/add/all/{uuid}")
+    public ResponseEntity<List<Product>> addProducts(@PathVariable String uuid,@Valid @RequestBody List<Product> product) throws ProductException, SessionsException {
+        sessionService.isSessionValid(uuid);
+        if(!sessionService.isAdmin(uuid))throw new SessionsException("Customer cannot add products");
         List<Product> p1=productService.addAllProducts(product);
         return new ResponseEntity<>(p1, HttpStatus.ACCEPTED);
     }
-    @DeleteMapping("/products/{id}")
-    public ResponseEntity<Product> deleteProduct(@PathVariable Long id) throws ProductException {
+    @DeleteMapping("/products/{id}/{uuid}")
+    public ResponseEntity<Product> deleteProduct(@PathVariable String uuid,@PathVariable Long id) throws ProductException, SessionsException {
+        sessionService.isSessionValid(uuid);
+        if(!sessionService.isAdmin(uuid))throw new SessionsException("Customer cannot delete products");
         Product p1=productService.deleteProduct(id);
         return new ResponseEntity<>(p1,HttpStatus.OK);
     }
@@ -51,8 +63,10 @@ public class ProductController {
         return new ResponseEntity<>(product,HttpStatus.OK);
     }
 
-    @PutMapping("/products/{id}")
-    public ResponseEntity<Product> updateProduct(@PathVariable Long id,@RequestBody Product product) throws ProductException {
+    @PutMapping("/products/{id}/{uuid}")
+    public ResponseEntity<Product> updateProduct(@PathVariable String uuid,@PathVariable Long id,@RequestBody Product product) throws ProductException, SessionsException {
+        sessionService.isSessionValid(uuid);
+        if(!sessionService.isAdmin(uuid))throw new SessionsException("Customer cannot update products");
         product.setProductId(id);
         Product p1=productService.updateProduct(product);
         return new ResponseEntity<>(p1,HttpStatus.OK);

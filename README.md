@@ -33,7 +33,7 @@ Sweetopia is a virtual store that specializes in selling a variety of sweets, ca
 ## Landing Page
 <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-04-03/LandingPage_528267.png"/>
 
-## Product Page
+## Products Page
 <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-04-03/productPage_982896.png"/>
 
 ## Admin Page

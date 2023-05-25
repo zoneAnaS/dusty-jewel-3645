@@ -45,20 +45,20 @@ Sweetopia is a virtual store that specializes in selling a variety of sweets, ca
 ## User Controller
 <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-05-25/UserController_114282.jpeg"/>
 
+## Products Controller
+<img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-05-25/ProductController_236624.jpeg"/>
+
 ## Cart Controller
-<img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-04-10/CartController_512843.png"/>
+<img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-05-25/CartController_877541.jpeg"/>
+
+## Category Controller
+<img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-05-25/CategoryController_531676.jpeg"/>
 
 ## Order and Bill Controller
-<img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-04-03/orderAndOrderBillController_708469.png"/>
-
-## Customer Controller
-<img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-04-10/CustomerController_534541.png"/>
-
-## Product Controller
-<img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-04-03/productController_810068.png"/>
+<img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-05-25/OrderBillController_434215.jpeg"/>
 
 ## ER Diagram
-<img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-04-03/Er_929559.jpeg"/>
+<img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-05-25/ER_603669.jpeg"/>
 
 ## API Root Endpoint
 

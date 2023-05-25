@@ -71,9 +71,10 @@ http://localhost:8080/swagger-ui/index.html
 ```
 
 ## Modules
+- User Module
 - Product Module
 - Customer Module
 - Category Module
 - Order Module
 - Order-Bill Module
-- Cart Module
+
